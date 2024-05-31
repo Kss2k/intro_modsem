@@ -45,10 +45,10 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/customizing.html">Customizing Interaction Terms</a>
-    <a class="dropdown-item" href="../articles/lavaan.html">Using lavaan functions</a>
+    <a class="dropdown-item" href="../articles/lavaan.html">using lavaan functions</a>
     <a class="dropdown-item" href="../articles/lms_qml.html">The LMS and QML approaches</a>
     <a class="dropdown-item" href="../articles/methods.html">methods</a>
-    <a class="dropdown-item" href="../articles/quadratic.html">Quadratic Effects</a>
+    <a class="dropdown-item" href="../articles/quadratic.html">quadratic effects</a>
   </div>
 </li>
       </ul>
@@ -89,10 +89,12 @@
 <h2 id="the-basic-syntax">The Basic Syntax<a class="anchor" aria-label="anchor" href="#the-basic-syntax"></a>
 </h2>
 <p>ModSEM basically introduces two new feature to the lavaan-syntax, 1. The semicolon operator (“:”), and 2. Parceling Functions (see chapter x). The semicolon operator works the same way as in the lm()-function. In order to specify an interaction effect between two variables, you join them by Var1:Var2, Models can either be estimated using the one of the product indicator approaches (“ca”, “rca”, “dblcent”, “pind”) or by using the latent moderated structural equations approach (“lms”), or the quasi maximum likelihood approach (“qml”). The product indicator approaches are estimated via lavaan, whilst the lms and qml approaches are estimated via modsem itself.</p>
+<div class="section level3">
+<h3 id="a-simple-example">A Simple Example<a class="anchor" aria-label="anchor" href="#a-simple-example"></a>
+</h3>
 <p>Here we can see a simple example of how to specify an interaction effect between two latent variables in lavaan.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Kss2k/modsem" class="external-link">modsem</a></span><span class="op">)</span></span>
-<span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
+<code class="sourceCode R"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
 <span><span class="st">  # Outer Model</span></span>
 <span><span class="st">  X =~ x1 + x2 +x3</span></span>
 <span><span class="st">  Y =~ y1 + y2 + y3</span></span>
@@ -327,9 +329,9 @@
 <span><span class="co">#&gt;           Z 1.016     0.018  55.216  &lt;2e-16    0.980    1.052</span></span>
 <span><span class="co">#&gt;           Y 0.991     0.036  27.223  &lt;2e-16    0.920    1.063</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="interactions-between-two-observed-variables">Interactions between two observed variables<a class="anchor" aria-label="anchor" href="#interactions-between-two-observed-variables"></a>
-</h2>
+<div class="section level3">
+<h3 id="interactions-between-two-observed-variables">Interactions Between two Observed Variables<a class="anchor" aria-label="anchor" href="#interactions-between-two-observed-variables"></a>
+</h3>
 <p>ModSEM does not only allow you to estimate interactions between latent variables, but also interactions between observed variables. Here we first run a regression with only observed variables, where there is an interaction between x1 and z2, and then run an equivalent model using modsem().</p>
 <p><strong>Regression</strong></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -392,9 +394,9 @@
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
 <span><span class="co">#&gt;    .y1                1.399    0.044   31.623    0.000</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="interactions-between-latent-and-observed-variables">Interactions between latent and observed variables<a class="anchor" aria-label="anchor" href="#interactions-between-latent-and-observed-variables"></a>
-</h2>
+<div class="section level3">
+<h3 id="interactions-between-latent-and-observed-variables">Interactions between Latent and Observed Variables<a class="anchor" aria-label="anchor" href="#interactions-between-latent-and-observed-variables"></a>
+</h3>
 <p>ModSEM also allows you to estimate interaction effects between latent and observed variables. To do so, you just join a latent and an observed variable by a colon, e.g., ‘latent:observer’. As with interactions between observed variables, it is generally recommended that you use method = “pind” for estimating the effect between observed x latent</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m3</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
@@ -472,9 +474,9 @@
 <span><span class="co">#&gt;    .Y                 1.112    0.040   27.710    0.000</span></span>
 <span><span class="co">#&gt;     Xz1               3.965    0.136   29.217    0.000</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="multiple-interactions">Multiple Interactions<a class="anchor" aria-label="anchor" href="#multiple-interactions"></a>
-</h2>
+<div class="section level3">
+<h3 id="multiple-interactions">Multiple Interactions<a class="anchor" aria-label="anchor" href="#multiple-interactions"></a>
+</h3>
 <p>ModSEM also allows you to specify multiple interactionterms. This is done the same way as for single interactions.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m4</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
@@ -748,9 +750,9 @@
 <span><span class="co">#&gt;     XZ              5521.898  529.472   10.429    0.000</span></span>
 <span><span class="co">#&gt;     GH             10317.626  645.107   15.994    0.000</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="interactionterms-with-more-than-two-varaibles">Interactionterms with more than two varaibles<a class="anchor" aria-label="anchor" href="#interactionterms-with-more-than-two-varaibles"></a>
-</h2>
+<div class="section level3">
+<h3 id="interaction-terms-with-more-than-two-varaibles">Interaction Terms with more than two varaibles<a class="anchor" aria-label="anchor" href="#interaction-terms-with-more-than-two-varaibles"></a>
+</h3>
 <p>In some rare cases, you might want an interactionterm between more than two variables (e.g., var1:var2:var3). This can be done in modsem by just adding the extra variable with an extra colon. Note that the more variables you have in your interaction term, the more difficult it will be to estimate your model. It is therefore a good idea to standardize your data before computing your model, this makes it a lot easier for lavaan to estimate your model. This can be done in modsem by adding: standardizeData = TRUE.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m5</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
@@ -1471,6 +1473,271 @@
 <span><span class="co">#&gt;     Z                 0.859    0.046   18.733    0.000</span></span>
 <span><span class="co">#&gt;     G                 0.863    0.046   18.846    0.000</span></span>
 <span><span class="co">#&gt;     XZG               0.463    0.041   11.288    0.000</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="quadratic-effects">Quadratic Effects<a class="anchor" aria-label="anchor" href="#quadratic-effects"></a>
+</h3>
+<p>In essence, quadratic effects are just a special case of interaction effects. Thus modsem can also be used to estimate quadratic effects.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">m6</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
+<span><span class="st"># Outer Model</span></span>
+<span><span class="st">X =~ x1 + x2 + x3</span></span>
+<span><span class="st">Y =~ y1 + y2 + y3</span></span>
+<span><span class="st">Z =~ z1 + z2 + z3</span></span>
+<span><span class="st"></span></span>
+<span><span class="st"># Inner model</span></span>
+<span><span class="st">Y ~ X + Z + Z:X + X:X</span></span>
+<span><span class="st">'</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="more-complicated-examples">More Complicated Examples<a class="anchor" aria-label="anchor" href="#more-complicated-examples"></a>
+</h3>
+<p>Here we can see a more complicated example using the model for the theory of planned behaviour.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">tpb</span> <span class="op">&lt;-</span> <span class="st">' </span></span>
+<span><span class="st"># Outer Model (Based on Hagger et al., 2007)</span></span>
+<span><span class="st">  ATT =~ att1 + att2 + att3 + att4 + att5</span></span>
+<span><span class="st">  SN =~ sn1 + sn2</span></span>
+<span><span class="st">  PBC =~ pbc1 + pbc2 + pbc3</span></span>
+<span><span class="st">  INT =~ int1 + int2 + int3</span></span>
+<span><span class="st">  BEH =~ b1 + b2</span></span>
+<span><span class="st"></span></span>
+<span><span class="st"># Inner Model (Based on Steinmetz et al., 2011)</span></span>
+<span><span class="st">  # Covariances</span></span>
+<span><span class="st">  ATT ~~ SN + PBC</span></span>
+<span><span class="st">  PBC ~~ SN </span></span>
+<span><span class="st">  # Causal Relationsships</span></span>
+<span><span class="st">  INT ~ ATT + SN + PBC</span></span>
+<span><span class="st">  BEH ~ INT + PBC </span></span>
+<span><span class="st">  BEH ~ INT:PBC  </span></span>
+<span><span class="st">'</span></span>
+<span><span class="co"># the double centering apporach</span></span>
+<span><span class="va">est_tpb</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, <span class="va">TPB</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># using the lms approach</span></span>
+<span><span class="va">est_tpb_lms</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"lms"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est_tpb_lms</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Estimating null model</span></span>
+<span><span class="co">#&gt; EM: Iteration =     1, LogLik =   -26393.22, Change = -26393.223</span></span>
+<span><span class="co">#&gt; EM: Iteration =     2, LogLik =   -26393.22, Change =      0.000</span></span>
+<span><span class="co">#&gt; Calculating Hessian</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ----Model Summary------------------------------------------------------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Number of iterations: 36 </span></span>
+<span><span class="co">#&gt; Final loglikelihood: -23589.8 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Comparative fit to H0 (no interaction effect)</span></span>
+<span><span class="co">#&gt;  Loglikelihood change = 2803.43</span></span>
+<span><span class="co">#&gt;  D(1) = -5606.85, p = &lt;2e-16</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; R-squared:</span></span>
+<span><span class="co">#&gt;    INT = 0.346 </span></span>
+<span><span class="co">#&gt;    BEH = 0.245 </span></span>
+<span><span class="co">#&gt; R-squared Null-Model (H0):</span></span>
+<span><span class="co">#&gt;    INT = 0.367 </span></span>
+<span><span class="co">#&gt;    BEH = 0.210 </span></span>
+<span><span class="co">#&gt; R-squared Change:</span></span>
+<span><span class="co">#&gt;    INT = -0.021 </span></span>
+<span><span class="co">#&gt;    BEH =  0.035 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ----Estimates----------------------------------------------------------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Loadings:</span></span>
+<span><span class="co">#&gt;   PBC: </span></span>
+<span><span class="co">#&gt;    variable   est std.error t.value  p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;        pbc1 1.000        NA      NA       NA       NA       NA</span></span>
+<span><span class="co">#&gt;        pbc2 0.915     0.013  73.012  &lt; 2e-16    0.891    0.940</span></span>
+<span><span class="co">#&gt;        pbc3 0.803     0.012  68.316  &lt; 2e-16    0.780    0.826 </span></span>
+<span><span class="co">#&gt;   ATT: </span></span>
+<span><span class="co">#&gt;    variable   est std.error t.value  p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;        att1 1.000        NA      NA       NA       NA       NA</span></span>
+<span><span class="co">#&gt;        att2 0.878     0.012  71.573  &lt; 2e-16    0.854    0.902</span></span>
+<span><span class="co">#&gt;        att3 0.789     0.012  66.365  &lt; 2e-16    0.765    0.812</span></span>
+<span><span class="co">#&gt;        att4 0.695     0.011  60.979  &lt; 2e-16    0.672    0.717</span></span>
+<span><span class="co">#&gt;        att5 0.887     0.013  70.856  &lt; 2e-16    0.862    0.911 </span></span>
+<span><span class="co">#&gt;   SN: </span></span>
+<span><span class="co">#&gt;    variable   est std.error t.value  p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;         sn1 1.000        NA      NA       NA       NA       NA</span></span>
+<span><span class="co">#&gt;         sn2 0.887     0.017  53.067  &lt; 2e-16    0.854    0.920 </span></span>
+<span><span class="co">#&gt;   INT: </span></span>
+<span><span class="co">#&gt;    variable   est std.error t.value  p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;        int1 1.000        NA      NA       NA       NA       NA</span></span>
+<span><span class="co">#&gt;        int2 0.913     0.015  59.065  &lt; 2e-16    0.883    0.944</span></span>
+<span><span class="co">#&gt;        int3 0.807     0.014  55.742  &lt; 2e-16    0.779    0.836 </span></span>
+<span><span class="co">#&gt;   BEH: </span></span>
+<span><span class="co">#&gt;    variable   est std.error t.value  p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;          b1 1.000        NA      NA       NA       NA       NA</span></span>
+<span><span class="co">#&gt;          b2 0.960     0.030  32.241  &lt; 2e-16    0.902    1.019 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Regressions: </span></span>
+<span><span class="co">#&gt;   INT: </span></span>
+<span><span class="co">#&gt;    variable   est std.error t.value  p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;         PBC 0.214     0.028   7.758 8.63e-15    0.160    0.268</span></span>
+<span><span class="co">#&gt;         ATT 0.216     0.026   8.411  &lt; 2e-16    0.166    0.266</span></span>
+<span><span class="co">#&gt;          SN 0.179     0.027   6.593 4.30e-11    0.126    0.232 </span></span>
+<span><span class="co">#&gt;   BEH: </span></span>
+<span><span class="co">#&gt;    variable   est std.error t.value  p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;         PBC 0.234     0.021  10.925  &lt; 2e-16    0.192    0.276</span></span>
+<span><span class="co">#&gt;         INT 0.191     0.024   8.030 9.72e-16    0.144    0.237</span></span>
+<span><span class="co">#&gt;     PBC:INT 0.210     0.018  11.747  &lt; 2e-16    0.175    0.245 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Intercepts: </span></span>
+<span><span class="co">#&gt;    variable   est std.error t.value  p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;        pbc1 0.997     0.009 112.274  &lt; 2e-16    0.979    1.014</span></span>
+<span><span class="co">#&gt;        pbc2 0.984     0.009 108.179  &lt; 2e-16    0.966    1.002</span></span>
+<span><span class="co">#&gt;        pbc3 0.990     0.009 110.743  &lt; 2e-16    0.973    1.008</span></span>
+<span><span class="co">#&gt;        att1 1.014     0.019  54.528  &lt; 2e-16    0.978    1.051</span></span>
+<span><span class="co">#&gt;        att2 1.007     0.017  60.480  &lt; 2e-16    0.975    1.040</span></span>
+<span><span class="co">#&gt;        att3 1.017     0.016  65.215  &lt; 2e-16    0.986    1.047</span></span>
+<span><span class="co">#&gt;        att4 0.999     0.014  69.282  &lt; 2e-16    0.971    1.027</span></span>
+<span><span class="co">#&gt;        att5 0.993     0.017  58.702  &lt; 2e-16    0.959    1.026</span></span>
+<span><span class="co">#&gt;         sn1 1.006     0.019  54.031  &lt; 2e-16    0.969    1.042</span></span>
+<span><span class="co">#&gt;         sn2 1.010     0.017  60.178  &lt; 2e-16    0.977    1.043</span></span>
+<span><span class="co">#&gt;        int1 1.014     0.019  54.143  &lt; 2e-16    0.978    1.051</span></span>
+<span><span class="co">#&gt;        int2 1.013     0.018  57.763  &lt; 2e-16    0.978    1.047</span></span>
+<span><span class="co">#&gt;        int3 1.006     0.016  62.193  &lt; 2e-16    0.974    1.037</span></span>
+<span><span class="co">#&gt;          b1 1.000     0.020  50.123  &lt; 2e-16    0.961    1.039</span></span>
+<span><span class="co">#&gt;          b2 1.018     0.019  54.647  &lt; 2e-16    0.982    1.055 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variances:</span></span>
+<span><span class="co">#&gt;    variable   est std.error t.value  p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;        pbc1 0.158     0.005  31.624  &lt; 2e-16    0.148    0.167</span></span>
+<span><span class="co">#&gt;        pbc2 0.165     0.005  31.622  &lt; 2e-16    0.155    0.176</span></span>
+<span><span class="co">#&gt;        pbc3 0.160     0.005  31.622  &lt; 2e-16    0.150    0.170</span></span>
+<span><span class="co">#&gt;        att1 0.167     0.007  23.536  &lt; 2e-16    0.153    0.181</span></span>
+<span><span class="co">#&gt;        att2 0.150     0.006  24.721  &lt; 2e-16    0.138    0.162</span></span>
+<span><span class="co">#&gt;        att3 0.160     0.006  26.392  &lt; 2e-16    0.148    0.171</span></span>
+<span><span class="co">#&gt;        att4 0.163     0.006  27.657  &lt; 2e-16    0.151    0.174</span></span>
+<span><span class="co">#&gt;        att5 0.159     0.006  24.936  &lt; 2e-16    0.146    0.171</span></span>
+<span><span class="co">#&gt;         sn1 0.177     0.015  12.183  &lt; 2e-16    0.148    0.205</span></span>
+<span><span class="co">#&gt;         sn2 0.157     0.012  13.521  &lt; 2e-16    0.135    0.180</span></span>
+<span><span class="co">#&gt;        int1 0.157     0.009  18.120  &lt; 2e-16    0.140    0.174</span></span>
+<span><span class="co">#&gt;        int2 0.160     0.008  20.423  &lt; 2e-16    0.145    0.176</span></span>
+<span><span class="co">#&gt;        int3 0.168     0.007  23.555  &lt; 2e-16    0.154    0.182</span></span>
+<span><span class="co">#&gt;          b1 0.186     0.018  10.301  &lt; 2e-16    0.150    0.221</span></span>
+<span><span class="co">#&gt;          b2 0.135     0.016   8.296  &lt; 2e-16    0.103    0.167</span></span>
+<span><span class="co">#&gt;         PBC 0.853     0.008 101.174  &lt; 2e-16    0.837    0.870</span></span>
+<span><span class="co">#&gt;         ATT 0.603     0.017  35.753  &lt; 2e-16    0.570    0.636</span></span>
+<span><span class="co">#&gt;          SN 0.602     0.018  34.323  &lt; 2e-16    0.568    0.637</span></span>
+<span><span class="co">#&gt;         ATT 0.951     0.014  69.062  &lt; 2e-16    0.924    0.978</span></span>
+<span><span class="co">#&gt;          SN 0.582     0.018  32.462  &lt; 2e-16    0.547    0.617</span></span>
+<span><span class="co">#&gt;          SN 0.941     0.015  64.015  &lt; 2e-16    0.912    0.970</span></span>
+<span><span class="co">#&gt;         INT 0.492     0.020  24.746  &lt; 2e-16    0.453    0.531</span></span>
+<span><span class="co">#&gt;         BEH 0.454     0.022  20.341  &lt; 2e-16    0.410    0.498</span></span></code></pre></div>
+<p>Here is an example included two quadratic- and one interaction effect, using the included dataset <code>jordan</code>. The dataset is subset of the PISA 2006 dataset.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
+<span><span class="st">ENJ =~ enjoy1 + enjoy2 + enjoy3 + enjoy4 + enjoy5</span></span>
+<span><span class="st">CAREER =~ career1 + career2 + career3 + career4</span></span>
+<span><span class="st">SC =~ academic1 + academic2 + academic3 + academic4 + academic5 + academic6</span></span>
+<span><span class="st">CAREER ~ ENJ + SC + ENJ:ENJ + SC:SC + ENJ:SC</span></span>
+<span><span class="st">'</span></span>
+<span></span>
+<span><span class="va">est_jordan</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m2</span>, data <span class="op">=</span> <span class="va">jordan</span><span class="op">)</span></span>
+<span><span class="va">est_jordan_qml</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m2</span>, data <span class="op">=</span> <span class="va">jordan</span>, method <span class="op">=</span> <span class="st">"qml"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est_jordan_qml</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Estimating null model</span></span>
+<span><span class="co">#&gt; Starting M-step</span></span>
+<span><span class="co">#&gt; Calculating Hessian</span></span>
+<span><span class="co">#&gt; Warning in calcSE(final$hessian): SE's for some coefficients could not be</span></span>
+<span><span class="co">#&gt; computed.</span></span>
+<span><span class="co">#&gt; Warning in calcD(estH0, object): D is positive, this indicates that the null</span></span>
+<span><span class="co">#&gt; model is better than the alternative model. Returning '-D' instead of 'D'</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ----Model Summary------------------------------------------------------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Number of iterations: 11 </span></span>
+<span><span class="co">#&gt; Final loglikelihood: -110522.6 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Comparative fit to H0 (no interaction effect)</span></span>
+<span><span class="co">#&gt;  Loglikelihood change = -1.33</span></span>
+<span><span class="co">#&gt;  D(3) = -2.66, p = 0.447</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; R-squared:</span></span>
+<span><span class="co">#&gt;    CAREER = 0.520 </span></span>
+<span><span class="co">#&gt; R-squared Null-Model (H0):</span></span>
+<span><span class="co">#&gt;    CAREER = 0.510 </span></span>
+<span><span class="co">#&gt; R-squared Change:</span></span>
+<span><span class="co">#&gt;    CAREER = 0.010 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ----Estimates----------------------------------------------------------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Loadings:</span></span>
+<span><span class="co">#&gt;   ENJ: </span></span>
+<span><span class="co">#&gt;     variable    est std.error t.value p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;       enjoy1  1.000        NA      NA      NA       NA       NA</span></span>
+<span><span class="co">#&gt;       enjoy2  1.012     0.020  49.918  &lt;2e-16    0.972    1.051</span></span>
+<span><span class="co">#&gt;       enjoy3  0.905     0.021  43.259  &lt;2e-16    0.864    0.946</span></span>
+<span><span class="co">#&gt;       enjoy4  1.011     0.021  47.621  &lt;2e-16    0.969    1.053</span></span>
+<span><span class="co">#&gt;       enjoy5  1.059     0.021  49.700  &lt;2e-16    1.017    1.101 </span></span>
+<span><span class="co">#&gt;   SC: </span></span>
+<span><span class="co">#&gt;     variable    est std.error t.value p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;    academic1  1.000        NA      NA      NA       NA       NA</span></span>
+<span><span class="co">#&gt;    academic2  1.102     0.028  39.182  &lt;2e-16    1.047    1.158</span></span>
+<span><span class="co">#&gt;    academic3  1.232     0.029  42.005  &lt;2e-16    1.175    1.289</span></span>
+<span><span class="co">#&gt;    academic4  1.250     0.030  42.128  &lt;2e-16    1.192    1.308</span></span>
+<span><span class="co">#&gt;    academic5  1.113     0.029  38.888  &lt;2e-16    1.057    1.169</span></span>
+<span><span class="co">#&gt;    academic6  1.196     0.029  40.631  &lt;2e-16    1.139    1.254 </span></span>
+<span><span class="co">#&gt;   CAREER: </span></span>
+<span><span class="co">#&gt;     variable    est std.error t.value p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;      career1  1.000        NA      NA      NA       NA       NA</span></span>
+<span><span class="co">#&gt;      career2  1.036     0.016  65.458  &lt;2e-16    1.005    1.067</span></span>
+<span><span class="co">#&gt;      career3  0.948     0.016  58.015  &lt;2e-16    0.916    0.980</span></span>
+<span><span class="co">#&gt;      career4  0.814     0.017  48.412  &lt;2e-16    0.781    0.847 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Regressions: </span></span>
+<span><span class="co">#&gt;   CAREER: </span></span>
+<span><span class="co">#&gt;     variable    est std.error t.value p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;          ENJ  0.548     0.021  26.619  &lt;2e-16    0.508    0.588</span></span>
+<span><span class="co">#&gt;           SC  0.458     0.024  19.482  &lt;2e-16    0.412    0.505</span></span>
+<span><span class="co">#&gt;      ENJ:ENJ  0.064     0.023   2.814  0.0049    0.019    0.109</span></span>
+<span><span class="co">#&gt;       ENJ:SC -0.114     0.048  -2.388  0.0170   -0.207   -0.020</span></span>
+<span><span class="co">#&gt;        SC:SC  0.033     0.035   0.941  0.3468   -0.036    0.101 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Intercepts: </span></span>
+<span><span class="co">#&gt;     variable    est std.error t.value p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;       enjoy1  0.002     0.013   0.139  0.8896   -0.023    0.027</span></span>
+<span><span class="co">#&gt;       enjoy2  0.002     0.013   0.170  0.8651   -0.023    0.027</span></span>
+<span><span class="co">#&gt;       enjoy3  0.001     0.013   0.086  0.9315   -0.024    0.026</span></span>
+<span><span class="co">#&gt;       enjoy4  0.002     0.013   0.152  0.8792   -0.023    0.027</span></span>
+<span><span class="co">#&gt;       enjoy5  0.002     0.013   0.183  0.8550   -0.023    0.027</span></span>
+<span><span class="co">#&gt;    academic1  0.000     0.012   0.016  0.9876   -0.024    0.025</span></span>
+<span><span class="co">#&gt;    academic2  0.001     0.013   0.051  0.9590   -0.024    0.025</span></span>
+<span><span class="co">#&gt;    academic3  0.000     0.012   0.021  0.9835   -0.024    0.025</span></span>
+<span><span class="co">#&gt;    academic4  0.001     0.012   0.042  0.9663   -0.024    0.025</span></span>
+<span><span class="co">#&gt;    academic5  0.000     0.013   0.011  0.9911   -0.025    0.025</span></span>
+<span><span class="co">#&gt;    academic6  0.001     0.013   0.113  0.9099   -0.023    0.026</span></span>
+<span><span class="co">#&gt;      career1 -0.016     0.017  -0.942  0.3463   -0.048    0.017</span></span>
+<span><span class="co">#&gt;      career2 -0.020     0.017  -1.157  0.2471   -0.053    0.014</span></span>
+<span><span class="co">#&gt;      career3 -0.016     0.016  -0.959  0.3373   -0.048    0.016</span></span>
+<span><span class="co">#&gt;      career4 -0.014     0.015  -0.885  0.3762   -0.044    0.017 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variances:</span></span>
+<span><span class="co">#&gt;     variable    est std.error t.value p.value ci.lower ci.upper</span></span>
+<span><span class="co">#&gt;       enjoy1  0.489     0.011  44.369  &lt;2e-16    0.468    0.511</span></span>
+<span><span class="co">#&gt;       enjoy2  0.490     0.011  44.406  &lt;2e-16    0.468    0.511</span></span>
+<span><span class="co">#&gt;       enjoy3  0.595     0.012  48.226  &lt;2e-16    0.571    0.619</span></span>
+<span><span class="co">#&gt;       enjoy4  0.487     0.011  44.527  &lt;2e-16    0.465    0.508</span></span>
+<span><span class="co">#&gt;       enjoy5  0.442     0.010  42.428  &lt;2e-16    0.421    0.462</span></span>
+<span><span class="co">#&gt;    academic1  0.645     0.013  49.801  &lt;2e-16    0.619    0.670</span></span>
+<span><span class="co">#&gt;    academic2  0.566     0.012  47.888  &lt;2e-16    0.542    0.589</span></span>
+<span><span class="co">#&gt;    academic3  0.474     0.011  44.317  &lt;2e-16    0.453    0.495</span></span>
+<span><span class="co">#&gt;    academic4  0.456     0.010  43.581  &lt;2e-16    0.435    0.476</span></span>
+<span><span class="co">#&gt;    academic5  0.565     0.012  47.712  &lt;2e-16    0.541    0.588</span></span>
+<span><span class="co">#&gt;    academic6  0.502     0.011  45.454  &lt;2e-16    0.480    0.523</span></span>
+<span><span class="co">#&gt;      career1  0.372     0.009  40.348  &lt;2e-16    0.354    0.390</span></span>
+<span><span class="co">#&gt;      career2  0.327     0.009  37.077  &lt;2e-16    0.310    0.345</span></span>
+<span><span class="co">#&gt;      career3  0.436     0.010  43.358  &lt;2e-16    0.416    0.456</span></span>
+<span><span class="co">#&gt;      career4  0.578     0.012  48.380  &lt;2e-16    0.554    0.601</span></span>
+<span><span class="co">#&gt;          ENJ  0.490     0.017  29.004  &lt;2e-16    0.457    0.523</span></span>
+<span><span class="co">#&gt;           SC  0.216     0.008  25.503  &lt;2e-16    0.200    0.233</span></span>
+<span><span class="co">#&gt;           SC  0.338     0.014  23.437  &lt;2e-16    0.310    0.367</span></span>
+<span><span class="co">#&gt;       CAREER  0.301     0.010  29.681  &lt;2e-16    0.281    0.321</span></span></code></pre></div>
+<p>Note: The other approaches work as well, but might be quite slow depending on the number of interaction effects (particularly for the LMS- and constrained approach).</p>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
