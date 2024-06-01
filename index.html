@@ -91,28 +91,36 @@
 </h1>
 <p>There are a number of approaches for estimating interaction effects in SEM. In <code><a href="reference/modsem.html">modsem()</a></code>, the <code>method = "method"</code> argument allows you to choose which to use.</p>
 <ul>
-<li>“ca” = constrained approach (Algina &amp; Moulder, 2001)<ul><li>Note that constraints can become quite complicated for complex models, particularly when there is an interaction including enodgenous variables. The method can therefore be quite slow.</li></ul>
+<li>
+<code>"ca"</code> = constrained approach (Algina &amp; Moulder, 2001)<ul><li>Note that constraints can become quite complicated for complex models, particularly when there is an interaction including enodgenous variables. The method can therefore be quite slow.</li></ul>
 </li>
-<li>“uca” = unconstrained approach (Marsh, 2004)</li>
-<li>“rca” = residual centering approach (Little et al., 2006)</li>
-<li>“dblcent” = double centering approach (Marsh., 2013)<ul><li>default</li></ul>
+<li>
+<code>"uca"</code> = unconstrained approach (Marsh, 2004)</li>
+<li>
+<code>"rca"</code> = residual centering approach (Little et al., 2006)</li>
+<li>
+<code>"dblcent"</code> = double centering approach (Marsh., 2013)<ul><li>default</li></ul>
 </li>
-<li>“pind” = basic product indicator approach (not recommended)</li>
-<li>“lms” = The latent moderated structural equations approach<ul>
+<li>
+<code>"pind"</code> = basic product indicator approach (not recommended)</li>
+<li>
+<code>"lms"</code> = The latent moderated structural equations approach<ul>
 <li>note: now implemented with multiple endogenous variables however it does not allow interactions between two enodgenous variables, it does however allow interactions between exogenous:endogenous and exogenous:exogenous</li>
 <li>do <code>optimize = TRUE</code> for faster convergence (experimental feature)</li>
 </ul>
 </li>
-<li>“qml” = The Quasi Maximum Likelihood estimation of latent moderated structural equations.<ul><li>note: only works with a single endogenous variable.</li></ul>
+<li>
+<code>"qml"</code> = The Quasi Maximum Likelihood estimation of latent moderated structural equations.<ul><li>note: only works with a single endogenous variable.</li></ul>
 </li>
-<li>“mplus”<ul><li>estimates model through Mplus, if it is installed</li></ul>
+<li>
+<code>"mplus"</code><ul><li>estimates model through Mplus, if it is installed</li></ul>
 </li>
 </ul>
 </div>
 <div class="section level1">
-<h1 id="new-feature-100424">New Feature (10.04.24)<a class="anchor" aria-label="anchor" href="#new-feature-100424"></a>
+<h1 id="new-feature-01062024">New Feature (01.06.2024)<a class="anchor" aria-label="anchor" href="#new-feature-01062024"></a>
 </h1>
-<ul><li>Implemented a new estimator for the LMS approach, which now works with more complicated models</li></ul>
+<ul><li>New function for plotting interaction effects (<code><a href="reference/plot_interaction.html">plot_interaction()</a></code>)</li></ul>
 </div>
 <div class="section level1">
 <h1 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
