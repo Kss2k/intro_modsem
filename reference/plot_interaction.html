@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">modsem</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,6 +121,46 @@ line ("y ~ x | z") will be plotted for each value of the moderator variable</p><
 <p>A ggplot object</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Kss2k/modsem" class="external-link">modsem</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="st">"</span></span></span>
+<span class="r-in"><span><span class="st"># Outer Model</span></span></span>
+<span class="r-in"><span><span class="st">  X =~ x1</span></span></span>
+<span class="r-in"><span><span class="st">  X =~ x2 + x3</span></span></span>
+<span class="r-in"><span><span class="st">  Z =~ z1 + z2 + z3</span></span></span>
+<span class="r-in"><span><span class="st">  Y =~ y1 + y2 + y3</span></span></span>
+<span class="r-in"><span><span class="st"></span></span></span>
+<span class="r-in"><span><span class="st"># Inner model</span></span></span>
+<span class="r-in"><span><span class="st">  Y ~ X + Z + X:Z</span></span></span>
+<span class="r-in"><span><span class="st">"</span></span></span>
+<span class="r-in"><span><span class="va">est1</span> <span class="op">&lt;-</span> <span class="fu"><a href="modsem.html">modsem</a></span><span class="op">(</span><span class="va">m1</span>, data <span class="op">=</span> <span class="va">oneInt</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plot_interaction</span><span class="op">(</span><span class="st">"X"</span>, <span class="st">"Z"</span>, <span class="st">"Y"</span>, <span class="st">"X:Z"</span>, <span class="op">-</span><span class="fl">3</span><span class="op">:</span><span class="fl">3</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.2</span>, <span class="fl">0</span><span class="op">)</span>, <span class="va">est1</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">tpb</span> <span class="op">&lt;-</span> <span class="st">"</span></span></span>
+<span class="r-in"><span><span class="st"># Outer Model (Based on Hagger et al., 2007)</span></span></span>
+<span class="r-in"><span><span class="st">  ATT =~ att1 + att2 + att3 + att4 + att5</span></span></span>
+<span class="r-in"><span><span class="st">  LSN =~ sn1 + sn2</span></span></span>
+<span class="r-in"><span><span class="st">  PBC =~ pbc1 + pbc2 + pbc3</span></span></span>
+<span class="r-in"><span><span class="st">  INT =~ int1 + int2 + int3</span></span></span>
+<span class="r-in"><span><span class="st">  BEH =~ b1 + b2</span></span></span>
+<span class="r-in"><span><span class="st"></span></span></span>
+<span class="r-in"><span><span class="st"># Inner Model (Based on Steinmetz et al., 2011)</span></span></span>
+<span class="r-in"><span><span class="st">  # Causal Relationsships</span></span></span>
+<span class="r-in"><span><span class="st">  INT ~ ATT + LSN + PBC</span></span></span>
+<span class="r-in"><span><span class="st">  BEH ~ INT + PBC</span></span></span>
+<span class="r-in"><span><span class="st">  # BEH ~ ATT:PBC</span></span></span>
+<span class="r-in"><span><span class="st">  BEH ~ PBC:INT</span></span></span>
+<span class="r-in"><span><span class="st">  # BEH ~ PBC:PBC</span></span></span>
+<span class="r-in"><span><span class="st">"</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">est2</span> <span class="op">&lt;-</span> <span class="fu"><a href="modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"lms"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plot_interaction</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"INT"</span>, z <span class="op">=</span> <span class="st">"PBC"</span>, y <span class="op">=</span> <span class="st">"BEH"</span>, xz <span class="op">=</span> <span class="st">"PBC:INT"</span>, </span></span>
+<span class="r-in"><span>                 vals_z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span>, model <span class="op">=</span> <span class="va">est2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
