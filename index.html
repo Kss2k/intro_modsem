@@ -48,6 +48,7 @@
     <a class="dropdown-item" href="articles/lavaan.html">using lavaan functions</a>
     <a class="dropdown-item" href="articles/lms_qml.html">LMS and QML approaches</a>
     <a class="dropdown-item" href="articles/methods.html">methods</a>
+    <a class="dropdown-item" href="articles/plot_interactions.html">plotting interaction effects</a>
     <a class="dropdown-item" href="articles/quadratic.html">quadratic effects</a>
   </div>
 </li>
@@ -149,23 +150,20 @@
 <div class="section level2">
 <h2 id="theory-of-planned-behavior">Theory Of Planned Behavior<a class="anchor" aria-label="anchor" href="#theory-of-planned-behavior"></a>
 </h2>
-<pre><code><span><span class="va">tpb</span> <span class="op">&lt;-</span> <span class="st">' </span></span>
+<pre><code><span><span class="va">tpb</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
 <span><span class="st"># Outer Model (Based on Hagger et al., 2007)</span></span>
-<span><span class="st">  LATT =~ att1 + att2 + att3 + att4 + att5</span></span>
+<span><span class="st">  ATT =~ att1 + att2 + att3 + att4 + att5</span></span>
 <span><span class="st">  LSN =~ sn1 + sn2</span></span>
-<span><span class="st">  LPBC =~ pbc1 + pbc2 + pbc3</span></span>
-<span><span class="st">  LINT =~ int1 + int2 + int3</span></span>
-<span><span class="st">  LBEH =~ b1 + b2</span></span>
+<span><span class="st">  PBC =~ pbc1 + pbc2 + pbc3</span></span>
+<span><span class="st">  INT =~ int1 + int2 + int3</span></span>
+<span><span class="st">  BEH =~ b1 + b2</span></span>
 <span><span class="st"></span></span>
 <span><span class="st"># Inner Model (Based on Steinmetz et al., 2011)</span></span>
-<span><span class="st">  # Covariances</span></span>
-<span><span class="st">  LATT ~~ LSN + LPBC</span></span>
-<span><span class="st">  LPBC ~~ LSN </span></span>
 <span><span class="st">  # Causal Relationsships</span></span>
-<span><span class="st">  LINT ~ LATT + LSN + LPBC</span></span>
-<span><span class="st">  LBEH ~ LINT + LPBC </span></span>
-<span><span class="st">  LBEH ~ LINT:LPBC  </span></span>
-<span><span class="st">'</span></span>
+<span><span class="st">  INT ~ ATT + LSN + PBC</span></span>
+<span><span class="st">  BEH ~ INT + PBC</span></span>
+<span><span class="st">  BEH ~ PBC:INT</span></span>
+<span><span class="st">"</span></span>
 <span></span>
 <span><span class="co"># double centering approach</span></span>
 <span><span class="va">estTpbDblCent</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, data <span class="op">=</span> <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"dblcent"</span><span class="op">)</span></span>

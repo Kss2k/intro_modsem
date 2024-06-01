@@ -28,6 +28,9 @@
     <loc>/articles/modsem.html</loc>
   </url>
   <url>
+    <loc>/articles/plot_interactions.html</loc>
+  </url>
+  <url>
     <loc>/articles/quadratic.html</loc>
   </url>
   <url>
@@ -68,6 +71,12 @@
   </url>
   <url>
     <loc>/reference/oneInt.html</loc>
+  </url>
+  <url>
+    <loc>/reference/parameter_estimates.html</loc>
+  </url>
+  <url>
+    <loc>/reference/plot_interaction.html</loc>
   </url>
   <url>
     <loc>/reference/summary.html</loc>

@@ -48,6 +48,7 @@
     <a class="dropdown-item" href="../articles/lavaan.html">using lavaan functions</a>
     <a class="dropdown-item" href="../articles/lms_qml.html">LMS and QML approaches</a>
     <a class="dropdown-item" href="../articles/methods.html">methods</a>
+    <a class="dropdown-item" href="../articles/plot_interactions.html">plotting interaction effects</a>
     <a class="dropdown-item" href="../articles/quadratic.html">quadratic effects</a>
   </div>
 </li>
@@ -99,64 +100,7 @@
 <span><span class="st">'</span></span>
 <span></span>
 <span><span class="va">est1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">oneInt</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">est1</span><span class="op">$</span><span class="va">syntax</span><span class="op">)</span></span>
-<span><span class="co">#&gt; X =~ x1</span></span>
-<span><span class="co">#&gt; X =~ x2</span></span>
-<span><span class="co">#&gt; X =~ x3</span></span>
-<span><span class="co">#&gt; Y =~ y1</span></span>
-<span><span class="co">#&gt; Y =~ y2</span></span>
-<span><span class="co">#&gt; Y =~ y3</span></span>
-<span><span class="co">#&gt; Z =~ z1</span></span>
-<span><span class="co">#&gt; Z =~ z2</span></span>
-<span><span class="co">#&gt; Z =~ z3</span></span>
-<span><span class="co">#&gt; Y ~ X</span></span>
-<span><span class="co">#&gt; Y ~ Z</span></span>
-<span><span class="co">#&gt; Y ~ XZ</span></span>
-<span><span class="co">#&gt; XZ =~ 1*x1z1</span></span>
-<span><span class="co">#&gt; XZ =~ x2z1</span></span>
-<span><span class="co">#&gt; XZ =~ x3z1</span></span>
-<span><span class="co">#&gt; XZ =~ x1z2</span></span>
-<span><span class="co">#&gt; XZ =~ x2z2</span></span>
-<span><span class="co">#&gt; XZ =~ x3z2</span></span>
-<span><span class="co">#&gt; XZ =~ x1z3</span></span>
-<span><span class="co">#&gt; XZ =~ x2z3</span></span>
-<span><span class="co">#&gt; XZ =~ x3z3</span></span>
-<span><span class="co">#&gt; x1z1 ~~ 0*x2z2</span></span>
-<span><span class="co">#&gt; x1z1 ~~ 0*x2z3</span></span>
-<span><span class="co">#&gt; x1z1 ~~ 0*x3z2</span></span>
-<span><span class="co">#&gt; x1z1 ~~ 0*x3z3</span></span>
-<span><span class="co">#&gt; x1z2 ~~ 0*x2z1</span></span>
-<span><span class="co">#&gt; x1z2 ~~ 0*x2z3</span></span>
-<span><span class="co">#&gt; x1z2 ~~ 0*x3z1</span></span>
-<span><span class="co">#&gt; x1z2 ~~ 0*x3z3</span></span>
-<span><span class="co">#&gt; x1z3 ~~ 0*x2z1</span></span>
-<span><span class="co">#&gt; x1z3 ~~ 0*x2z2</span></span>
-<span><span class="co">#&gt; x1z3 ~~ 0*x3z1</span></span>
-<span><span class="co">#&gt; x1z3 ~~ 0*x3z2</span></span>
-<span><span class="co">#&gt; x2z1 ~~ 0*x3z2</span></span>
-<span><span class="co">#&gt; x2z1 ~~ 0*x3z3</span></span>
-<span><span class="co">#&gt; x2z2 ~~ 0*x3z1</span></span>
-<span><span class="co">#&gt; x2z2 ~~ 0*x3z3</span></span>
-<span><span class="co">#&gt; x2z3 ~~ 0*x3z1</span></span>
-<span><span class="co">#&gt; x2z3 ~~ 0*x3z2</span></span>
-<span><span class="co">#&gt; x1z1 ~~ x1z2</span></span>
-<span><span class="co">#&gt; x1z1 ~~ x1z3</span></span>
-<span><span class="co">#&gt; x1z1 ~~ x2z1</span></span>
-<span><span class="co">#&gt; x1z1 ~~ x3z1</span></span>
-<span><span class="co">#&gt; x1z2 ~~ x1z3</span></span>
-<span><span class="co">#&gt; x1z2 ~~ x2z2</span></span>
-<span><span class="co">#&gt; x1z2 ~~ x3z2</span></span>
-<span><span class="co">#&gt; x1z3 ~~ x2z3</span></span>
-<span><span class="co">#&gt; x1z3 ~~ x3z3</span></span>
-<span><span class="co">#&gt; x2z1 ~~ x2z2</span></span>
-<span><span class="co">#&gt; x2z1 ~~ x2z3</span></span>
-<span><span class="co">#&gt; x2z1 ~~ x3z1</span></span>
-<span><span class="co">#&gt; x2z2 ~~ x2z3</span></span>
-<span><span class="co">#&gt; x2z2 ~~ x3z2</span></span>
-<span><span class="co">#&gt; x2z3 ~~ x3z3</span></span>
-<span><span class="co">#&gt; x3z1 ~~ x3z2</span></span>
-<span><span class="co">#&gt; x3z1 ~~ x3z3</span></span>
-<span><span class="co">#&gt; x3z2 ~~ x3z3</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">est1</span><span class="op">$</span><span class="va">syntax</span><span class="op">)</span></span></code></pre></div>
 <p>Whilst this often is sufficient, you might want some control over how these indicators are created. In general, modsem() has two mechanisms for giving control over the creating of indicator products: 1. By specifying the measurement model of your latent product your self, and 2. By using the mean() and sum() function, collectively known as parceling operations.</p>
 <div class="section level2">
 <h2 id="specifying-the-measurement-model">Specifying The Measurement Model<a class="anchor" aria-label="anchor" href="#specifying-the-measurement-model"></a>
@@ -174,75 +118,7 @@
 <span><span class="st">'</span></span>
 <span></span>
 <span><span class="va">est2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m2</span>, <span class="va">oneInt</span>, match <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est2</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ModSEM: </span></span>
-<span><span class="co">#&gt; Method = dblcent</span></span>
-<span><span class="co">#&gt; lavaan 0.6.17 ended normally after 41 iterations</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;   Estimator                                         ML</span></span>
-<span><span class="co">#&gt;   Optimization method                           NLMINB</span></span>
-<span><span class="co">#&gt;   Number of model parameters                        22</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;   Number of observations                          2000</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Model Test User Model:</span></span>
-<span><span class="co">#&gt;                                                       </span></span>
-<span><span class="co">#&gt;   Test statistic                                11.355</span></span>
-<span><span class="co">#&gt;   Degrees of freedom                                14</span></span>
-<span><span class="co">#&gt;   P-value (Chi-square)                           0.658</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Parameter Estimates:</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;   Standard errors                             Standard</span></span>
-<span><span class="co">#&gt;   Information                                 Expected</span></span>
-<span><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Latent Variables:</span></span>
-<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;   X =~                                                </span></span>
-<span><span class="co">#&gt;     x1                1.000                           </span></span>
-<span><span class="co">#&gt;     x2                0.819    0.021   38.127    0.000</span></span>
-<span><span class="co">#&gt;   Y =~                                                </span></span>
-<span><span class="co">#&gt;     y1                1.000                           </span></span>
-<span><span class="co">#&gt;     y2                0.807    0.010   82.495    0.000</span></span>
-<span><span class="co">#&gt;   Z =~                                                </span></span>
-<span><span class="co">#&gt;     z1                1.000                           </span></span>
-<span><span class="co">#&gt;     z2                0.836    0.024   35.392    0.000</span></span>
-<span><span class="co">#&gt;   XZ =~                                               </span></span>
-<span><span class="co">#&gt;     x1z1              1.000                           </span></span>
-<span><span class="co">#&gt;     x2z2              0.645    0.024   26.904    0.000</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Regressions:</span></span>
-<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;   Y ~                                                 </span></span>
-<span><span class="co">#&gt;     X                 0.688    0.029   23.366    0.000</span></span>
-<span><span class="co">#&gt;     Z                 0.576    0.029   20.173    0.000</span></span>
-<span><span class="co">#&gt;     XZ                0.706    0.032   22.405    0.000</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Covariances:</span></span>
-<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;  .x1z1 ~~                                             </span></span>
-<span><span class="co">#&gt;    .x2z2              0.000                           </span></span>
-<span><span class="co">#&gt;   X ~~                                                </span></span>
-<span><span class="co">#&gt;     Z                 0.202    0.025    8.182    0.000</span></span>
-<span><span class="co">#&gt;     XZ                0.003    0.026    0.119    0.905</span></span>
-<span><span class="co">#&gt;   Z ~~                                                </span></span>
-<span><span class="co">#&gt;     XZ                0.042    0.026    1.621    0.105</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Variances:</span></span>
-<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;    .x1                0.179    0.022    8.029    0.000</span></span>
-<span><span class="co">#&gt;    .x2                0.151    0.015    9.956    0.000</span></span>
-<span><span class="co">#&gt;    .y1                0.184    0.021    8.577    0.000</span></span>
-<span><span class="co">#&gt;    .y2                0.136    0.014    9.663    0.000</span></span>
-<span><span class="co">#&gt;    .z1                0.197    0.025    7.802    0.000</span></span>
-<span><span class="co">#&gt;    .z2                0.138    0.018    7.831    0.000</span></span>
-<span><span class="co">#&gt;    .x1z1              0.319    0.035    9.141    0.000</span></span>
-<span><span class="co">#&gt;    .x2z2              0.244    0.016   15.369    0.000</span></span>
-<span><span class="co">#&gt;     X                 0.962    0.042   23.120    0.000</span></span>
-<span><span class="co">#&gt;    .Y                 0.964    0.042   23.110    0.000</span></span>
-<span><span class="co">#&gt;     Z                 0.987    0.044   22.260    0.000</span></span>
-<span><span class="co">#&gt;     XZ                1.041    0.054   19.441    0.000</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est2</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="more-complicated-models">More complicated models<a class="anchor" aria-label="anchor" href="#more-complicated-models"></a>
@@ -259,42 +135,9 @@
 <span><span class="st">Y ~ X + Z + X:Z </span></span>
 <span><span class="st">'</span></span>
 <span><span class="va">est3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m3</span>, <span class="va">oneInt</span>, run <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">est3</span><span class="op">$</span><span class="va">syntax</span><span class="op">)</span></span>
-<span><span class="co">#&gt; X =~ x1</span></span>
-<span><span class="co">#&gt; X =~ x2</span></span>
-<span><span class="co">#&gt; Y =~ y1</span></span>
-<span><span class="co">#&gt; Y =~ y2</span></span>
-<span><span class="co">#&gt; Z =~ z1</span></span>
-<span><span class="co">#&gt; Z =~ z2</span></span>
-<span><span class="co">#&gt; Y ~ X</span></span>
-<span><span class="co">#&gt; Y ~ Z</span></span>
-<span><span class="co">#&gt; Y ~ XZ</span></span>
-<span><span class="co">#&gt; XZ =~ 1*x1z1</span></span>
-<span><span class="co">#&gt; XZ =~ x2z1</span></span>
-<span><span class="co">#&gt; XZ =~ x1z2</span></span>
-<span><span class="co">#&gt; XZ =~ x2z2</span></span>
-<span><span class="co">#&gt; x1z1 ~~ 0*x2z2</span></span>
-<span><span class="co">#&gt; x1z2 ~~ 0*x2z1</span></span>
-<span><span class="co">#&gt; x1z1 ~~ x1z2</span></span>
-<span><span class="co">#&gt; x1z1 ~~ x2z1</span></span>
-<span><span class="co">#&gt; x1z2 ~~ x2z2</span></span>
-<span><span class="co">#&gt; x2z1 ~~ x2z2</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">est3</span><span class="op">$</span><span class="va">syntax</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">est3</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></span>
-<span><span class="co">#&gt;           x1         x2         y1         y2         z1         z2       x1z1</span></span>
-<span><span class="co">#&gt; 1  2.4345722  1.3578655  1.4526897  0.9560888  0.8184825 1.60708140 -0.4823019</span></span>
-<span><span class="co">#&gt; 2  0.2472734  0.2723201  0.5496756  0.7115311  3.6649148 2.60983102 -2.2680403</span></span>
-<span><span class="co">#&gt; 3 -1.3647759 -0.5628205 -0.9835467 -0.6697747  1.7249386 2.10981827 -1.9137416</span></span>
-<span><span class="co">#&gt; 4  3.0432836  2.2153763  6.4641465  4.7805981  2.5697116 3.26335379  2.9385205</span></span>
-<span><span class="co">#&gt; 5  2.8148841  2.7029616  2.2860280  2.1457643  0.3467850 0.07164577 -1.4009548</span></span>
-<span><span class="co">#&gt; 6 -0.5453450 -0.7530642  1.1294876  1.1998472 -0.2362958 0.60252657  1.7465860</span></span>
-<span><span class="co">#&gt;         x2z1       x1z2       x2z2</span></span>
-<span><span class="co">#&gt; 1 -0.1884837  0.3929380 -0.0730934</span></span>
-<span><span class="co">#&gt; 2 -2.6637694 -1.2630544 -1.4547433</span></span>
-<span><span class="co">#&gt; 3 -1.4299711 -2.3329864 -1.7383407</span></span>
-<span><span class="co">#&gt; 4  1.3971422  3.9837389  1.9273102</span></span>
-<span><span class="co">#&gt; 5 -1.1495704 -2.2058995 -1.8169042</span></span>
-<span><span class="co">#&gt; 6  2.2950753  0.7717365  1.0568143</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">est3</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
