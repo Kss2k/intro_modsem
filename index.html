@@ -45,6 +45,7 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="articles/customizing.html">customizing interaction terms</a>
+    <a class="dropdown-item" href="articles/interaction_two_etas.html">interaction effects between endogenous variables</a>
     <a class="dropdown-item" href="articles/lavaan.html">using lavaan functions</a>
     <a class="dropdown-item" href="articles/lms_qml.html">LMS and QML approaches</a>
     <a class="dropdown-item" href="articles/methods.html">methods</a>
@@ -84,7 +85,7 @@
 <span></span>
 <span><span class="co"># Latest version from Github</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"kss2k/modsem"</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"kss2k/modsem"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level1">
 <h1 id="methodsapproaches">Methods/Approaches<a class="anchor" aria-label="anchor" href="#methodsapproaches"></a>
@@ -104,23 +105,21 @@
 <li>
 <code>"pind"</code> = basic product indicator approach (not recommended)</li>
 <li>
-<code>"lms"</code> = The latent moderated structural equations approach<ul>
-<li>note: now implemented with multiple endogenous variables however it does not allow interactions between two enodgenous variables, it does however allow interactions between exogenous:endogenous and exogenous:exogenous</li>
-<li>do <code>optimize = TRUE</code> for faster convergence (experimental feature)</li>
-</ul>
-</li>
+<code>"lms"</code> = The latent moderated structural equations approach</li>
 <li>
-<code>"qml"</code> = The Quasi Maximum Likelihood estimation of latent moderated structural equations.<ul><li>note: only works with a single endogenous variable.</li></ul>
-</li>
+<code>"qml"</code> = The Quasi Maximum Likelihood estimation of latent moderated structural equations.</li>
 <li>
 <code>"mplus"</code><ul><li>estimates model through Mplus, if it is installed</li></ul>
 </li>
 </ul>
 </div>
 <div class="section level1">
-<h1 id="new-feature-01062024">New Feature (01.06.2024)<a class="anchor" aria-label="anchor" href="#new-feature-01062024"></a>
+<h1 id="new-features-01062024-04-06-2024">New Features (01.06.2024-04-06-2024)<a class="anchor" aria-label="anchor" href="#new-features-01062024-04-06-2024"></a>
 </h1>
-<ul><li>New function for plotting interaction effects (<code><a href="reference/plot_interaction.html">plot_interaction()</a></code>)</li></ul>
+<ul>
+<li>New function for plotting interaction effects (<code><a href="reference/plot_interaction.html">plot_interaction()</a></code>)</li>
+<li>Interaction effects between two endogenous variables are now possible with the LMS and QML approach, using the ‘cov_syntax’ argument, see the <a href="file:///home/kjell/Dropbox/code/R/repos/modsem/docs/articles/interaction_two_etas.html">vignette</a> for more information.</li>
+</ul>
 </div>
 <div class="section level1">
 <h1 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>

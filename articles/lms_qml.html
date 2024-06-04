@@ -45,6 +45,7 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/customizing.html">customizing interaction terms</a>
+    <a class="dropdown-item" href="../articles/interaction_two_etas.html">interaction effects between endogenous variables</a>
     <a class="dropdown-item" href="../articles/lavaan.html">using lavaan functions</a>
     <a class="dropdown-item" href="../articles/lms_qml.html">LMS and QML approaches</a>
     <a class="dropdown-item" href="../articles/methods.html">methods</a>
@@ -119,6 +120,7 @@
 <h3 id="a-more-complicated-example">A more complicated example<a class="anchor" aria-label="anchor" href="#a-more-complicated-example"></a>
 </h3>
 <p>Here you can see an example of a more complicated example using the model from the theory of planned behaviour (TPB), where there are two endogenous variables, where there is an interaction between an endogenous and exogenous variable. (note this does not work with the QML approach). For more complicated models, it is recommended that you increase the number of nodes used for numerical integration. By default the number of nodes is set to 16, and can be increased using the nodes argument.</p>
+<p>Note: If you want the lms-approach to give as similar results as possible to mplus, you would have to increase the number of nodes (e.g., <code>nodes = 100</code>), and lower the convergence criterion (e.g., <code>conv_crit = 1e-5</code>).</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># ATT = Attitude, </span></span>
 <span><span class="co"># PBC = Perceived Behavioural Control </span></span>
