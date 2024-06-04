@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="index.html">modsem</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,7 +73,8 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="modsem-">ModSEM <img src="reference/figures/ModSEM.png" alt="Logo" align="right" height="139" class="logo"><a class="anchor" aria-label="anchor" href="#modsem-"></a>
+<div class="page-header"><h1 id="modsem-">
+<a href="https://kss2k.github.io/intro_modsem/" class="external-link">ModSEM</a> <img src="reference/figures/ModSEM.png" alt="Logo" align="right" height="139" class="logo"><a class="anchor" aria-label="anchor" href="#modsem-"></a>
 </h1></div>
 <p>This is a package which allows you to perform interactions between latent variables (i.e., moderation) in CB-SEM. See <a href="https://kss2k.github.io/intro_modsem/" class="external-link uri">https://kss2k.github.io/intro_modsem/</a> for a tutorial.</p>
 </div>
@@ -118,7 +119,7 @@
 </h1>
 <ul>
 <li>New function for plotting interaction effects (<code><a href="reference/plot_interaction.html">plot_interaction()</a></code>)</li>
-<li>Interaction effects between two endogenous variables are now possible with the LMS and QML approach, using the ‘cov_syntax’ argument, see the <a href="file:///home/kjell/Dropbox/code/R/repos/modsem/docs/articles/interaction_two_etas.html">vignette</a> for more information.</li>
+<li>Interaction effects between two endogenous variables are now possible with the LMS and QML approach, using the ‘cov_syntax’ argument, see the <a href="file:///home/kjell/Dropbox/code/R/repos/modsem/docs/articles/interaction_two_etas.html">vignette</a> for more information. (only available on GitHub, not on CRAN)</li>
 </ul>
 </div>
 <div class="section level1">
@@ -160,14 +161,14 @@
 <pre><code><span><span class="va">tpb</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
 <span><span class="st"># Outer Model (Based on Hagger et al., 2007)</span></span>
 <span><span class="st">  ATT =~ att1 + att2 + att3 + att4 + att5</span></span>
-<span><span class="st">  LSN =~ sn1 + sn2</span></span>
+<span><span class="st">  SN =~ sn1 + sn2</span></span>
 <span><span class="st">  PBC =~ pbc1 + pbc2 + pbc3</span></span>
 <span><span class="st">  INT =~ int1 + int2 + int3</span></span>
 <span><span class="st">  BEH =~ b1 + b2</span></span>
 <span><span class="st"></span></span>
 <span><span class="st"># Inner Model (Based on Steinmetz et al., 2011)</span></span>
 <span><span class="st">  # Causal Relationsships</span></span>
-<span><span class="st">  INT ~ ATT + LSN + PBC</span></span>
+<span><span class="st">  INT ~ ATT + SN + PBC</span></span>
 <span><span class="st">  BEH ~ INT + PBC</span></span>
 <span><span class="st">  BEH ~ PBC:INT</span></span>
 <span><span class="st">"</span></span>

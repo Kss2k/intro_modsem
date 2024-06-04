@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">modsem</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,14 +142,14 @@ line ("y ~ x | z") will be plotted for each value of the moderator variable</p><
 <span class="r-in"><span><span class="va">tpb</span> <span class="op">&lt;-</span> <span class="st">"</span></span></span>
 <span class="r-in"><span><span class="st"># Outer Model (Based on Hagger et al., 2007)</span></span></span>
 <span class="r-in"><span><span class="st">  ATT =~ att1 + att2 + att3 + att4 + att5</span></span></span>
-<span class="r-in"><span><span class="st">  LSN =~ sn1 + sn2</span></span></span>
+<span class="r-in"><span><span class="st">  SN =~ sn1 + sn2</span></span></span>
 <span class="r-in"><span><span class="st">  PBC =~ pbc1 + pbc2 + pbc3</span></span></span>
 <span class="r-in"><span><span class="st">  INT =~ int1 + int2 + int3</span></span></span>
 <span class="r-in"><span><span class="st">  BEH =~ b1 + b2</span></span></span>
 <span class="r-in"><span><span class="st"></span></span></span>
 <span class="r-in"><span><span class="st"># Inner Model (Based on Steinmetz et al., 2011)</span></span></span>
 <span class="r-in"><span><span class="st">  # Causal Relationsships</span></span></span>
-<span class="r-in"><span><span class="st">  INT ~ ATT + LSN + PBC</span></span></span>
+<span class="r-in"><span><span class="st">  INT ~ ATT + SN + PBC</span></span></span>
 <span class="r-in"><span><span class="st">  BEH ~ INT + PBC</span></span></span>
 <span class="r-in"><span><span class="st">  # BEH ~ ATT:PBC</span></span></span>
 <span class="r-in"><span><span class="st">  BEH ~ PBC:INT</span></span></span>

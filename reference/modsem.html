@@ -34,7 +34,7 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
     
     <a class="navbar-brand me-2" href="../index.html">modsem</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -331,20 +331,20 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-in"><span><span class="co"># Theory Of Planned Behavior</span></span></span>
 <span class="r-in"><span><span class="va">tpb</span> <span class="op">&lt;-</span> <span class="st">' </span></span></span>
 <span class="r-in"><span><span class="st"># Outer Model (Based on Hagger et al., 2007)</span></span></span>
-<span class="r-in"><span><span class="st">  LATT =~ att1 + att2 + att3 + att4 + att5</span></span></span>
-<span class="r-in"><span><span class="st">  LSN =~ sn1 + sn2</span></span></span>
-<span class="r-in"><span><span class="st">  LPBC =~ pbc1 + pbc2 + pbc3</span></span></span>
-<span class="r-in"><span><span class="st">  LINT =~ int1 + int2 + int3</span></span></span>
-<span class="r-in"><span><span class="st">  LBEH =~ b1 + b2</span></span></span>
+<span class="r-in"><span><span class="st">  ATT =~ att1 + att2 + att3 + att4 + att5</span></span></span>
+<span class="r-in"><span><span class="st">  SN =~ sn1 + sn2</span></span></span>
+<span class="r-in"><span><span class="st">  PBC =~ pbc1 + pbc2 + pbc3</span></span></span>
+<span class="r-in"><span><span class="st">  INT =~ int1 + int2 + int3</span></span></span>
+<span class="r-in"><span><span class="st">  BEH =~ b1 + b2</span></span></span>
 <span class="r-in"><span><span class="st"></span></span></span>
 <span class="r-in"><span><span class="st"># Inner Model (Based on Steinmetz et al., 2011)</span></span></span>
 <span class="r-in"><span><span class="st">  # Covariances</span></span></span>
-<span class="r-in"><span><span class="st">  LATT ~~ LSN + LPBC</span></span></span>
-<span class="r-in"><span><span class="st">  LPBC ~~ LSN </span></span></span>
+<span class="r-in"><span><span class="st">  ATT ~~ SN + PBC</span></span></span>
+<span class="r-in"><span><span class="st">  PBC ~~ SN </span></span></span>
 <span class="r-in"><span><span class="st">  # Causal Relationsships</span></span></span>
-<span class="r-in"><span><span class="st">  LINT ~ LATT + LSN + LPBC</span></span></span>
-<span class="r-in"><span><span class="st">  LBEH ~ LINT + LPBC </span></span></span>
-<span class="r-in"><span><span class="st">  LBEH ~ LINT:LPBC  </span></span></span>
+<span class="r-in"><span><span class="st">  INT ~ ATT + SN + PBC</span></span></span>
+<span class="r-in"><span><span class="st">  BEH ~ INT + PBC </span></span></span>
+<span class="r-in"><span><span class="st">  BEH ~ INT:PBC  </span></span></span>
 <span class="r-in"><span><span class="st">'</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># double centering approach</span></span></span>
@@ -374,27 +374,27 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Latent Variables:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    Estimate  Std.Err  z-value  P(&gt;|z|)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LATT =~                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ATT =~                                              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     att1              1.000                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     att2              0.878    0.012   71.509    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     att3              0.789    0.012   66.368    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     att4              0.695    0.011   61.017    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     att5              0.887    0.013   70.884    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LSN =~                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   SN =~                                               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     sn1               1.000                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     sn2               0.889    0.017   52.553    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LPBC =~                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   PBC =~                                              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     pbc1              1.000                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     pbc2              0.912    0.013   69.500    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     pbc3              0.801    0.012   65.830    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LINT =~                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   INT =~                                              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int1              1.000                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int2              0.914    0.016   58.982    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int3              0.808    0.015   55.547    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LBEH =~                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   BEH =~                                              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     b1                1.000                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     b2                0.960    0.030   31.561    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LINTLPBC =~                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   INTPBC =~                                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int1pbc1          1.000                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int2pbc1          0.931    0.015   63.809    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int3pbc1          0.774    0.013   60.107    0.000</span>
@@ -407,22 +407,22 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Regressions:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    Estimate  Std.Err  z-value  P(&gt;|z|)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LINT ~                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LATT              0.213    0.026    8.170    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LSN               0.177    0.028    6.416    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LPBC              0.217    0.030    7.340    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LBEH ~                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LINT              0.191    0.024    7.817    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LPBC              0.230    0.022   10.507    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LINTLPBC          0.204    0.018   11.425    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   INT ~                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ATT               0.213    0.026    8.170    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     SN                0.177    0.028    6.416    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     PBC               0.217    0.030    7.340    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   BEH ~                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     INT               0.191    0.024    7.817    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     PBC               0.230    0.022   10.507    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     INTPBC            0.204    0.018   11.425    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Covariances:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    Estimate  Std.Err  z-value  P(&gt;|z|)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LATT ~~                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LSN               0.629    0.029   21.977    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LPBC              0.678    0.029   23.721    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LSN ~~                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LPBC              0.678    0.029   23.338    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ATT ~~                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     SN                0.629    0.029   21.977    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     PBC               0.678    0.029   23.721    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   SN ~~                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     PBC               0.678    0.029   23.338    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .int1pbc1 ~~                                         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .int2pbc2          0.000                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .int2pbc3          0.000                           </span>
@@ -481,12 +481,12 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .int3pbc3          0.123    0.006   21.059    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .int3pbc2 ~~                                         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .int3pbc3          0.114    0.005   21.021    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LATT ~~                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LINTLPBC          0.086    0.024    3.519    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LSN ~~                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LINTLPBC          0.055    0.025    2.230    0.026</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   LPBC ~~                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LINTLPBC          0.087    0.024    3.609    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ATT ~~                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     INTPBC            0.086    0.024    3.519    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   SN ~~                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     INTPBC            0.055    0.025    2.230    0.026</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   PBC ~~                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     INTPBC            0.087    0.024    3.609    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Variances:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    Estimate  Std.Err  z-value  P(&gt;|z|)</span>
@@ -514,12 +514,12 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .int1pbc3          0.223    0.009   24.431    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .int2pbc3          0.234    0.008   27.633    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .int3pbc3          0.203    0.007   29.288    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LATT              0.998    0.037   27.138    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LSN               0.987    0.039   25.394    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LPBC              0.962    0.035   27.260    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    .LINT              0.490    0.020   24.638    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    .LBEH              0.455    0.023   20.068    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     LINTLPBC          1.020    0.041   24.612    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ATT               0.998    0.037   27.138    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     SN                0.987    0.039   25.394    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     PBC               0.962    0.035   27.260    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    .INT               0.490    0.020   24.638    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    .BEH               0.455    0.023   20.068    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     INTPBC            1.020    0.041   24.612    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
