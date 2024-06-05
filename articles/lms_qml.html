@@ -119,7 +119,7 @@
 <div class="section level3">
 <h3 id="a-more-complicated-example">A more complicated example<a class="anchor" aria-label="anchor" href="#a-more-complicated-example"></a>
 </h3>
-<p>Here you can see an example of a more complicated example using the model from the theory of planned behaviour (TPB), where there are two endogenous variables, where there is an interaction between an endogenous and exogenous variable. (note this works a bit differently with the QML approach, see the <a href="https://kss2k.github.io/intro_modsem/articles/interaction_two_etas.html" class="external-link">vignette</a>). For more complicated models, it is recommended that you increase the number of nodes used for numerical integration. By default the number of nodes is set to 16, and can be increased using the nodes argument.</p>
+<p>Here you can see an example of a more complicated example using the model from the theory of planned behaviour (TPB), where there are two endogenous variables, where there is an interaction between an endogenous and exogenous variable. When estimating more complicated models with the LMS-approach, it is recommended that you increase the number of nodes used for numerical integration. By default the number of nodes is set to 16, and can be increased using the nodes argument. The argument has no effect on the QML approach.</p>
 <p>Note: If you want the lms-approach to give as similar results as possible to mplus, you would have to increase the number of nodes (e.g., <code>nodes = 100</code>), and lower the convergence criterion (e.g., <code>conv_crit = 1e-5</code>).</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># ATT = Attitude, </span></span>
@@ -142,7 +142,10 @@
 <span><span class="st">'</span></span>
 <span></span>
 <span><span class="va">lms2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"lms"</span>, nodes <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">lms2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">lms2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">qml2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"qml"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">qml2</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

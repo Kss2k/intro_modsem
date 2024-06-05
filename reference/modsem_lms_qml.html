@@ -94,6 +94,8 @@ necessary syntax, and variables for the estimation of models with latent product
 <span>  convergence <span class="op">=</span> <span class="fl">0.01</span>,</span>
 <span>  center <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  standardize <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  double <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  hessian <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  cov_syntax <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -139,6 +141,15 @@ for simple models 16 is enough, for more complex models 100 is usually enough.</
 
 <dt>standardize</dt>
 <dd><p>should data be scaled before fitting model</p></dd>
+
+
+<dt>double</dt>
+<dd><p>try to double the number of dimensions of integrations used in LMS,
+this will be extremely slow, but should be more similar to mplus.</p></dd>
+
+
+<dt>hessian</dt>
+<dd><p>should hessian (i.e., std.errors) be calculated</p></dd>
 
 
 <dt>cov_syntax</dt>
