@@ -209,43 +209,6 @@
 <span><span class="va">est3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m3</span>, <span class="va">oneInt</span>, method <span class="op">=</span> <span class="st">"pind"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est3</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="section level2">
-<h2 id="multiple-interaction-terms">Multiple interaction terms<a class="anchor" aria-label="anchor" href="#multiple-interaction-terms"></a>
-</h2>
-<pre><code><span><span class="va">m4</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
-<span><span class="st">  # Outer Model</span></span>
-<span><span class="st">  X =~ x1 + x2 +x3</span></span>
-<span><span class="st">  Y =~ y1 + y2 + y3</span></span>
-<span><span class="st">  Z =~ z1 + z2 + z3</span></span>
-<span><span class="st">  G =~ g1 + g2 + g3</span></span>
-<span><span class="st">  H =~ h1 + h2 + h3</span></span>
-<span><span class="st">  </span></span>
-<span><span class="st">  # Inner model</span></span>
-<span><span class="st">  Y ~ X + Z + G + H + X:Z + G:H</span></span>
-<span><span class="st">'</span></span>
-<span></span>
-<span><span class="co"># Using unconstrained approach</span></span>
-<span><span class="va">est4</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m4</span>, <span class="va">twoInt</span>, method <span class="op">=</span> <span class="st">"uca"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est4</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="section level2">
-<h2 id="interactionterms-with-more-than-two-variables">Interactionterms with more than two variables<a class="anchor" aria-label="anchor" href="#interactionterms-with-more-than-two-variables"></a>
-</h2>
-<pre><code><span><span class="va">m5</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
-<span><span class="st">  # Outer Model</span></span>
-<span><span class="st">  X =~ x1 + x2 +x3</span></span>
-<span><span class="st">  Y =~ y1 + y2 + y3</span></span>
-<span><span class="st">  Z =~ z1 + z2 + z3</span></span>
-<span><span class="st">  G =~ g1 + g2 + g3</span></span>
-<span><span class="st">  </span></span>
-<span><span class="st">  # Inner model</span></span>
-<span><span class="st">  Y ~ X + Z + G + X:Z:G</span></span>
-<span><span class="st">'</span></span>
-<span></span>
-<span><span class="co"># Residual centering approach</span></span>
-<span><span class="va">est5</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m5</span>, <span class="va">tripleInt</span>, standardizeData <span class="op">=</span> <span class="cn">TRUE</span>, method <span class="op">=</span> <span class="st">"rca"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est5</span><span class="op">)</span></span></code></pre>
-</div>
 </div>
 
   </main><aside class="col-md-3"><div class="links">

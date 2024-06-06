@@ -145,51 +145,12 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est3</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="multiple-interactions">Multiple Interactions<a class="anchor" aria-label="anchor" href="#multiple-interactions"></a>
-</h3>
-<p>ModSEM also allows you to specify multiple interactionterms. This is done the same way as for single interactions.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">m4</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
-<span><span class="st">  # Outer Model</span></span>
-<span><span class="st">  X =~ x1 + x2 +x3</span></span>
-<span><span class="st">  Y =~ y1 + y2 + y3</span></span>
-<span><span class="st">  Z =~ z1 + z2 + z3</span></span>
-<span><span class="st">  G =~ g1 + g2 + g3</span></span>
-<span><span class="st">  H =~ h1 + h2 + h3</span></span>
-<span><span class="st">  </span></span>
-<span><span class="st">  # Inner model</span></span>
-<span><span class="st">  Y ~ X + Z + G + H + X:Z + G:H</span></span>
-<span><span class="st">'</span></span>
-<span></span>
-<span><span class="va">est4</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m4</span>, <span class="va">twoInt</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est4</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="interaction-terms-with-more-than-two-varaibles">Interaction Terms with more than two varaibles<a class="anchor" aria-label="anchor" href="#interaction-terms-with-more-than-two-varaibles"></a>
-</h3>
-<p>In some rare cases, you might want an interactionterm between more than two variables (e.g., var1:var2:var3). This can be done in modsem by just adding the extra variable with an extra colon. Note that the more variables you have in your interaction term, the more difficult it will be to estimate your model. It is therefore a good idea to standardize your data before computing your model, this makes it a lot easier for lavaan to estimate your model. This can be done in modsem by adding: standardizeData = TRUE.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">m5</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
-<span><span class="st">  # Outer Model</span></span>
-<span><span class="st">  X =~ x1 + x2 +x3</span></span>
-<span><span class="st">  Y =~ y1 + y2 + y3</span></span>
-<span><span class="st">  Z =~ z1 + z2 + z3</span></span>
-<span><span class="st">  G =~ g1 + g2 + g3</span></span>
-<span><span class="st">  </span></span>
-<span><span class="st">  # Inner model</span></span>
-<span><span class="st">  Y ~ X + Z + G + X:Z:G</span></span>
-<span><span class="st">'</span></span>
-<span></span>
-<span><span class="va">est5</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m5</span>, <span class="va">tripleInt</span>, standardizeData <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est5</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
 <h3 id="quadratic-effects">Quadratic Effects<a class="anchor" aria-label="anchor" href="#quadratic-effects"></a>
 </h3>
 <p>In essence, quadratic effects are just a special case of interaction effects. Thus modsem can also be used to estimate quadratic effects.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="va">m6</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
+<span><span class="va">m4</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
 <span><span class="st"># Outer Model</span></span>
 <span><span class="st">X =~ x1 + x2 + x3</span></span>
 <span><span class="st">Y =~ y1 + y2 + y3</span></span>
@@ -203,7 +164,7 @@
 <h3 id="more-complicated-examples">More Complicated Examples<a class="anchor" aria-label="anchor" href="#more-complicated-examples"></a>
 </h3>
 <p>Here we can see a more complicated example using the model for the theory of planned behaviour.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">tpb</span> <span class="op">&lt;-</span> <span class="st">' </span></span>
 <span><span class="st"># Outer Model (Based on Hagger et al., 2007)</span></span>
@@ -214,13 +175,8 @@
 <span><span class="st">  BEH =~ b1 + b2</span></span>
 <span><span class="st"></span></span>
 <span><span class="st"># Inner Model (Based on Steinmetz et al., 2011)</span></span>
-<span><span class="st">  # Covariances</span></span>
-<span><span class="st">  ATT ~~ SN + PBC</span></span>
-<span><span class="st">  PBC ~~ SN </span></span>
-<span><span class="st">  # Causal Relationsships</span></span>
 <span><span class="st">  INT ~ ATT + SN + PBC</span></span>
-<span><span class="st">  BEH ~ INT + PBC </span></span>
-<span><span class="st">  BEH ~ INT:PBC  </span></span>
+<span><span class="st">  BEH ~ INT + PBC + INT:PBC  </span></span>
 <span><span class="st">'</span></span>
 <span><span class="co"># the double centering apporach</span></span>
 <span><span class="va">est_tpb</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, <span class="va">TPB</span><span class="op">)</span></span>
@@ -229,7 +185,7 @@
 <span><span class="va">est_tpb_lms</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"lms"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est_tpb_lms</span><span class="op">)</span></span></code></pre></div>
 <p>Here is an example included two quadratic- and one interaction effect, using the included dataset <code>jordan</code>. The dataset is subset of the PISA 2006 dataset.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
 <span><span class="st">ENJ =~ enjoy1 + enjoy2 + enjoy3 + enjoy4 + enjoy5</span></span>
 <span><span class="st">CAREER =~ career1 + career2 + career3 + career4</span></span>
