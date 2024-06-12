@@ -90,7 +90,7 @@
 <div class="section level2">
 <h2 id="the-basic-syntax">The Basic Syntax<a class="anchor" aria-label="anchor" href="#the-basic-syntax"></a>
 </h2>
-<p>ModSEM basically introduces a new feature to the lavaan-syntax – the semicolon operator (“:”). The semicolon operator works the same way as in the lm()-function. In order to specify an interaction effect between two variables, you join them by Var1:Var2, Models can either be estimated using the one of the product indicator approaches (“ca”, “rca”, “dblcent”, “pind”) or by using the latent moderated structural equations approach (“lms”), or the quasi maximum likelihood approach (“qml”). The product indicator approaches are estimated via lavaan, whilst the lms and qml approaches are estimated via modsem itself.</p>
+<p>modsem basically introduces a new feature to the lavaan-syntax – the semicolon operator (“:”). The semicolon operator works the same way as in the lm()-function. In order to specify an interaction effect between two variables, you join them by Var1:Var2, Models can either be estimated using the one of the product indicator approaches (“ca”, “rca”, “dblcent”, “pind”) or by using the latent moderated structural equations approach (“lms”), or the quasi maximum likelihood approach (“qml”). The product indicator approaches are estimated via lavaan, whilst the lms and qml approaches are estimated via modsem itself.</p>
 <div class="section level3">
 <h3 id="a-simple-example">A Simple Example<a class="anchor" aria-label="anchor" href="#a-simple-example"></a>
 </h3>
@@ -116,7 +116,7 @@
 <div class="section level3">
 <h3 id="interactions-between-two-observed-variables">Interactions Between two Observed Variables<a class="anchor" aria-label="anchor" href="#interactions-between-two-observed-variables"></a>
 </h3>
-<p>ModSEM does not only allow you to estimate interactions between latent variables, but also interactions between observed variables. Here we first run a regression with only observed variables, where there is an interaction between x1 and z2, and then run an equivalent model using modsem().</p>
+<p>modsem does not only allow you to estimate interactions between latent variables, but also interactions between observed variables. Here we first run a regression with only observed variables, where there is an interaction between x1 and z2, and then run an equivalent model using modsem().</p>
 <p><strong>Regression</strong></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">reg1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">y1</span> <span class="op">~</span> <span class="va">x1</span><span class="op">*</span><span class="va">z1</span>, <span class="va">oneInt</span><span class="op">)</span></span>
@@ -130,7 +130,7 @@
 <div class="section level3">
 <h3 id="interactions-between-latent-and-observed-variables">Interactions between Latent and Observed Variables<a class="anchor" aria-label="anchor" href="#interactions-between-latent-and-observed-variables"></a>
 </h3>
-<p>ModSEM also allows you to estimate interaction effects between latent and observed variables. To do so, you just join a latent and an observed variable by a colon, e.g., ‘latent:observer’. As with interactions between observed variables, it is generally recommended that you use method = “pind” for estimating the effect between observed x latent</p>
+<p>modsem also allows you to estimate interaction effects between latent and observed variables. To do so, you just join a latent and an observed variable by a colon, e.g., ‘latent:observer’. As with interactions between observed variables, it is generally recommended that you use method = “pind” for estimating the effect between observed x latent</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m3</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
 <span><span class="st">  # Outer Model</span></span>
@@ -158,7 +158,10 @@
 <span><span class="st"></span></span>
 <span><span class="st"># Inner model</span></span>
 <span><span class="st">Y ~ X + Z + Z:X + X:X</span></span>
-<span><span class="st">'</span></span></code></pre></div>
+<span><span class="st">'</span></span>
+<span></span>
+<span><span class="va">est4</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">m4</span>, <span class="va">oneInt</span>, <span class="st">"qml"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est4</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="more-complicated-examples">More Complicated Examples<a class="anchor" aria-label="anchor" href="#more-complicated-examples"></a>

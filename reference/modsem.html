@@ -99,19 +99,12 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">modsem</span><span class="op">(</span></span>
-<span>  model_syntax <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  data <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  method <span class="op">=</span> <span class="st">"dblcent"</span>,</span>
-<span>  standardize <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  center <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  <span class="va">...</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">modsem</span><span class="op">(</span>model.syntax <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, method <span class="op">=</span> <span class="st">"dblcent"</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>model_syntax</dt>
+    <dl><dt>model.syntax</dt>
 <dd><p>lavaan syntax</p></dd>
 
 
@@ -130,14 +123,6 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 "custom" = use parameters specified in the function call (passed to lavaan)</p></dd>
 
 
-<dt>standardize</dt>
-<dd><p>should data be scaled before fitting model</p></dd>
-
-
-<dt>center</dt>
-<dd><p>should data be centered before fitting model</p></dd>
-
-
 <dt>...</dt>
 <dd><p>arguments passed to other functions depending on method (see modsem_pi, modsem_lms_qml, and modsem_mplus)</p></dd>
 
@@ -146,7 +131,7 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>ModSEM object</p>
+<p>modsem object</p>
     </div>
 
     <div class="section level2">
@@ -167,9 +152,9 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-in"><span><span class="co"># Double centering approach</span></span></span>
 <span class="r-in"><span><span class="va">est1</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">m1</span>, <span class="va">oneInt</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ModSEM: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> modsem: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Method = dblcent </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> lavaan 0.6.17 ended normally after 161 iterations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lavaan 0.6-18 ended normally after 161 iterations</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Estimator                                         ML</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Optimization method                           NLMINB</span>
@@ -315,16 +300,16 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># The Constrained Approach </span></span></span>
-<span class="r-in"><span><span class="va">est1Constrained</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">m1</span>, <span class="va">oneInt</span>, method <span class="op">=</span> <span class="st">"ca"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est1Constrained</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">est1_ca</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">m1</span>, <span class="va">oneInt</span>, method <span class="op">=</span> <span class="st">"ca"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est1_ca</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># LMS approach</span></span></span>
-<span class="r-in"><span><span class="va">est1LMS</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">m1</span>, <span class="va">oneInt</span>, method <span class="op">=</span> <span class="st">"lms"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est1LMS</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">est1_lms</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">m1</span>, <span class="va">oneInt</span>, method <span class="op">=</span> <span class="st">"lms"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est1_lms</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># QML approach</span></span></span>
-<span class="r-in"><span><span class="va">est1QML</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">m1</span>, <span class="va">oneInt</span>, method <span class="op">=</span> <span class="st">"qml"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est1QML</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">est1_qml</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">m1</span>, <span class="va">oneInt</span>, method <span class="op">=</span> <span class="st">"qml"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est1_qml</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
@@ -338,21 +323,17 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-in"><span><span class="st">  BEH =~ b1 + b2</span></span></span>
 <span class="r-in"><span><span class="st"></span></span></span>
 <span class="r-in"><span><span class="st"># Inner Model (Based on Steinmetz et al., 2011)</span></span></span>
-<span class="r-in"><span><span class="st">  # Covariances</span></span></span>
-<span class="r-in"><span><span class="st">  ATT ~~ SN + PBC</span></span></span>
-<span class="r-in"><span><span class="st">  PBC ~~ SN </span></span></span>
-<span class="r-in"><span><span class="st">  # Causal Relationsships</span></span></span>
 <span class="r-in"><span><span class="st">  INT ~ ATT + SN + PBC</span></span></span>
 <span class="r-in"><span><span class="st">  BEH ~ INT + PBC </span></span></span>
 <span class="r-in"><span><span class="st">  BEH ~ INT:PBC  </span></span></span>
 <span class="r-in"><span><span class="st">'</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># double centering approach</span></span></span>
-<span class="r-in"><span><span class="va">estTpb</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">tpb</span>, data <span class="op">=</span> <span class="va">TPB</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">estTpb</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ModSEM: </span>
+<span class="r-in"><span><span class="va">est_tpb</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">tpb</span>, data <span class="op">=</span> <span class="va">TPB</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est_tpb</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> modsem: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Method = dblcent </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> lavaan 0.6.17 ended normally after 166 iterations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lavaan 0.6-18 ended normally after 171 iterations</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Estimator                                         ML</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Optimization method                           NLMINB</span>
@@ -398,7 +379,7 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int1pbc1          1.000                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int2pbc1          0.931    0.015   63.809    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int3pbc1          0.774    0.013   60.107    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     int1pbc2          0.893    0.013   68.172    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     int1pbc2          0.893    0.013   68.173    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int2pbc2          0.826    0.017   48.845    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int3pbc2          0.690    0.015   45.300    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     int1pbc3          0.799    0.012   67.008    0.000</span>
@@ -418,11 +399,6 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Covariances:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    Estimate  Std.Err  z-value  P(&gt;|z|)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ATT ~~                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     SN                0.629    0.029   21.977    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     PBC               0.678    0.029   23.721    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   SN ~~                                               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     PBC               0.678    0.029   23.338    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .int1pbc1 ~~                                         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .int2pbc2          0.000                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .int2pbc3          0.000                           </span>
@@ -482,8 +458,11 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .int3pbc2 ~~                                         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .int3pbc3          0.114    0.005   21.021    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ATT ~~                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     SN                0.629    0.029   21.977    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     PBC               0.678    0.029   23.721    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     INTPBC            0.086    0.024    3.519    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   SN ~~                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     PBC               0.678    0.029   23.338    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     INTPBC            0.055    0.025    2.230    0.026</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   PBC ~~                                              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     INTPBC            0.087    0.024    3.609    0.000</span>
@@ -524,12 +503,16 @@ as passing additional arguments to them via modsem() can lead to unexpected beha
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># The Constrained Approach </span></span></span>
-<span class="r-in"><span><span class="va">estTpbConstrained</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">tpb</span>, data <span class="op">=</span> <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"ca"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">estTpbConstrained</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">est_tpb_ca</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">tpb</span>, data <span class="op">=</span> <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"ca"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est_tpb_ca</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># LMS approach</span></span></span>
-<span class="r-in"><span><span class="va">estTpbLMS</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">tpb</span>, data <span class="op">=</span> <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"lms"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">estTpbLMS</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">est_tpb_lms</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">tpb</span>, data <span class="op">=</span> <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"lms"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est_tpb_lms</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># QML approach</span></span></span>
+<span class="r-in"><span><span class="va">est_tpb_qml</span> <span class="op">&lt;-</span> <span class="fu">modsem</span><span class="op">(</span><span class="va">tpb</span>, data <span class="op">=</span> <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"qml"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est_tpb_qml</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>

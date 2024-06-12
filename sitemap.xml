@@ -49,6 +49,9 @@
     <loc>/reference/TPB_UK.html</loc>
   </url>
   <url>
+    <loc>/reference/compare_fit.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
@@ -85,6 +88,9 @@
     <loc>/reference/plot_interaction.html</loc>
   </url>
   <url>
+    <loc>/reference/standardized_estimates.html</loc>
+  </url>
+  <url>
     <loc>/reference/summary.html</loc>
   </url>
   <url>
@@ -98,5 +104,8 @@
   </url>
   <url>
     <loc>/reference/twoInt.html</loc>
+  </url>
+  <url>
+    <loc>/reference/var_interactions.html</loc>
   </url>
 </urlset>

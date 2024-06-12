@@ -73,13 +73,54 @@ summary.modsem_pi"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/aja
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for modsem_lms</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  H0 <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  r.squared <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  digits <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  scientific <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  ci <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  standardized <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  loadings <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  regressions <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  covariances <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  intercepts <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  variances <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for modsem_qml</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  H0 <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  r.squared <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  digits <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  scientific <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  ci <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  standardized <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  loadings <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  regressions <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  covariances <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  intercepts <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  variances <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for modsem_mplus</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  scientific <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  ci <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  digits <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  loadings <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  regressions <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  covariances <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  intercepts <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  variances <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for modsem_pi</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
@@ -91,11 +132,91 @@ summary.modsem_pi"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/aja
 <dd><p>modsem object to summarized</p></dd>
 
 
+<dt>H0</dt>
+<dd><p>should a null model be estimated (used for comparison)</p></dd>
+
+
+<dt>verbose</dt>
+<dd><p>print progress for the estimation of null model</p></dd>
+
+
+<dt>r.squared</dt>
+<dd><p>calculate R-squared</p></dd>
+
+
+<dt>digits</dt>
+<dd><p>number of digits to print</p></dd>
+
+
+<dt>scientific</dt>
+<dd><p>print p-values in scientific notation</p></dd>
+
+
+<dt>ci</dt>
+<dd><p>print confidence intervals</p></dd>
+
+
+<dt>standardized</dt>
+<dd><p>print standardized estimates</p></dd>
+
+
+<dt>loadings</dt>
+<dd><p>print loadings</p></dd>
+
+
+<dt>regressions</dt>
+<dd><p>print regressions</p></dd>
+
+
+<dt>covariances</dt>
+<dd><p>print covariances</p></dd>
+
+
+<dt>intercepts</dt>
+<dd><p>print intercepts</p></dd>
+
+
+<dt>variances</dt>
+<dd><p>print variances</p></dd>
+
+
 <dt>...</dt>
 <dd><p>arguments passed to lavaan::summary()</p></dd>
 
 </dl></div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="st">"</span></span></span>
+<span class="r-in"><span><span class="st"> # Outer Model</span></span></span>
+<span class="r-in"><span><span class="st"> X =~ x1 + x2 + x3</span></span></span>
+<span class="r-in"><span><span class="st"> Y =~ y1 + y2 + y3</span></span></span>
+<span class="r-in"><span><span class="st"> Z =~ z1 + z2 + z3</span></span></span>
+<span class="r-in"><span><span class="st"></span></span></span>
+<span class="r-in"><span><span class="st"> # Inner model</span></span></span>
+<span class="r-in"><span><span class="st"> Y ~ X + Z + X:Z</span></span></span>
+<span class="r-in"><span><span class="st">"</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">est1</span> <span class="op">&lt;-</span> <span class="fu"><a href="modsem.html">modsem</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">oneInt</span>, <span class="st">"lms"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est1</span>, ci <span class="op">=</span> <span class="cn">TRUE</span>, scientific <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="st">"</span></span></span>
+<span class="r-in"><span><span class="st"> # Outer Model</span></span></span>
+<span class="r-in"><span><span class="st"> X =~ x1 + x2 + x3</span></span></span>
+<span class="r-in"><span><span class="st"> Y =~ y1 + y2 + y3</span></span></span>
+<span class="r-in"><span><span class="st"> Z =~ z1 + z2 + z3</span></span></span>
+<span class="r-in"><span><span class="st"></span></span></span>
+<span class="r-in"><span><span class="st"> # Inner model</span></span></span>
+<span class="r-in"><span><span class="st"> Y ~ X + Z + X:Z</span></span></span>
+<span class="r-in"><span><span class="st">"</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">est1</span> <span class="op">&lt;-</span> <span class="fu"><a href="modsem.html">modsem</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">oneInt</span>, <span class="st">"qml"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">est1</span>, ci <span class="op">=</span> <span class="cn">TRUE</span>, scientific <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
