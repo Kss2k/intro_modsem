@@ -49,7 +49,16 @@
     <loc>/reference/TPB_UK.html</loc>
   </url>
   <url>
+    <loc>/reference/coef.html</loc>
+  </url>
+  <url>
+    <loc>/reference/coefficients.html</loc>
+  </url>
+  <url>
     <loc>/reference/compare_fit.html</loc>
+  </url>
+  <url>
+    <loc>/reference/default_settings_da.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
@@ -65,6 +74,9 @@
   </url>
   <url>
     <loc>/reference/modsem_da.html</loc>
+  </url>
+  <url>
+    <loc>/reference/modsem_inspect.html</loc>
   </url>
   <url>
     <loc>/reference/modsem_lms_qml.html</loc>
@@ -103,6 +115,9 @@
     <loc>/reference/tracePath.html</loc>
   </url>
   <url>
+    <loc>/reference/trace_path.html</loc>
+  </url>
+  <url>
     <loc>/reference/tripleInt.html</loc>
   </url>
   <url>
@@ -110,5 +125,8 @@
   </url>
   <url>
     <loc>/reference/var_interactions.html</loc>
+  </url>
+  <url>
+    <loc>/reference/vcov.html</loc>
   </url>
 </urlset>
