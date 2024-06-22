@@ -31,6 +31,9 @@
     <loc>/articles/modsem.html</loc>
   </url>
   <url>
+    <loc>/articles/observed_lms_qml.html</loc>
+  </url>
+  <url>
     <loc>/articles/plot_interactions.html</loc>
   </url>
   <url>
@@ -49,16 +52,13 @@
     <loc>/reference/TPB_UK.html</loc>
   </url>
   <url>
-    <loc>/reference/coef.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coefficients.html</loc>
-  </url>
-  <url>
     <loc>/reference/compare_fit.html</loc>
   </url>
   <url>
     <loc>/reference/default_settings_da.html</loc>
+  </url>
+  <url>
+    <loc>/reference/default_settings_pi.html</loc>
   </url>
   <url>
     <loc>/reference/extract_lavaan.html</loc>
@@ -88,9 +88,6 @@
     <loc>/reference/modsem_inspect.html</loc>
   </url>
   <url>
-    <loc>/reference/modsem_lms_qml.html</loc>
-  </url>
-  <url>
     <loc>/reference/modsem_mplus.html</loc>
   </url>
   <url>
@@ -118,24 +115,9 @@
     <loc>/reference/summary.html</loc>
   </url>
   <url>
-    <loc>/reference/summaryLmsAndQml.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tracePath.html</loc>
-  </url>
-  <url>
     <loc>/reference/trace_path.html</loc>
   </url>
   <url>
-    <loc>/reference/tripleInt.html</loc>
-  </url>
-  <url>
-    <loc>/reference/twoInt.html</loc>
-  </url>
-  <url>
     <loc>/reference/var_interactions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/vcov.html</loc>
   </url>
 </urlset>

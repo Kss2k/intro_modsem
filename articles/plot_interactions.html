@@ -49,6 +49,7 @@
     <a class="dropdown-item" href="../articles/lavaan.html">using lavaan functions</a>
     <a class="dropdown-item" href="../articles/lms_qml.html">LMS and QML approaches</a>
     <a class="dropdown-item" href="../articles/methods.html">methods</a>
+    <a class="dropdown-item" href="../articles/observed_lms_qml.html">observed variables in the LMS- and QML approach</a>
     <a class="dropdown-item" href="../articles/plot_interactions.html">plotting interaction effects</a>
     <a class="dropdown-item" href="../articles/quadratic.html">quadratic effects</a>
   </div>
@@ -122,7 +123,11 @@
 <span><span class="st">"</span></span>
 <span></span>
 <span><span class="va">est2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"lms"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/plot_interaction.html">plot_interaction</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"INT"</span>, z <span class="op">=</span> <span class="st">"PBC"</span>, y <span class="op">=</span> <span class="st">"BEH"</span>, xz <span class="op">=</span> <span class="st">"PBC:INT"</span>, </span>
+<span><span class="co">#&gt; Warning: It is recommended that you have at least 32 nodes for interaction</span></span>
+<span><span class="co">#&gt; effects between exogenous and endogenous variables in the lms approach 'nodes =</span></span>
+<span><span class="co">#&gt; 16'</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_interaction.html">plot_interaction</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"INT"</span>, z <span class="op">=</span> <span class="st">"PBC"</span>, y <span class="op">=</span> <span class="st">"BEH"</span>, xz <span class="op">=</span> <span class="st">"PBC:INT"</span>, </span>
 <span>                 vals_z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span>, model <span class="op">=</span> <span class="va">est2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot_interactions_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 </div>

@@ -32,6 +32,7 @@
     <a class="dropdown-item" href="../articles/lavaan.html">using lavaan functions</a>
     <a class="dropdown-item" href="../articles/lms_qml.html">LMS and QML approaches</a>
     <a class="dropdown-item" href="../articles/methods.html">methods</a>
+    <a class="dropdown-item" href="../articles/observed_lms_qml.html">observed variables in the LMS- and QML approach</a>
     <a class="dropdown-item" href="../articles/plot_interactions.html">plotting interaction effects</a>
     <a class="dropdown-item" href="../articles/quadratic.html">quadratic effects</a>
   </div>
@@ -67,7 +68,7 @@
 <span>  <span class="va">x</span>,</span>
 <span>  <span class="va">z</span>,</span>
 <span>  <span class="va">y</span>,</span>
-<span>  <span class="va">xz</span>,</span>
+<span>  xz <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  vals_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">0.001</span><span class="op">)</span>,</span>
 <span>  <span class="va">vals_z</span>,</span>
 <span>  <span class="va">model</span>,</span>
@@ -91,7 +92,8 @@
 
 
 <dt>xz</dt>
-<dd><p>The name of the interaction term</p></dd>
+<dd><p>The name of the interaction term. If the interaction term is not specified, it
+it will be created using `x` and `z`.</p></dd>
 
 
 <dt>vals_x</dt>

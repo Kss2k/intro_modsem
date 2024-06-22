@@ -49,6 +49,7 @@
     <a class="dropdown-item" href="../articles/lavaan.html">using lavaan functions</a>
     <a class="dropdown-item" href="../articles/lms_qml.html">LMS and QML approaches</a>
     <a class="dropdown-item" href="../articles/methods.html">methods</a>
+    <a class="dropdown-item" href="../articles/observed_lms_qml.html">observed variables in the LMS- and QML approach</a>
     <a class="dropdown-item" href="../articles/plot_interactions.html">plotting interaction effects</a>
     <a class="dropdown-item" href="../articles/quadratic.html">quadratic effects</a>
   </div>
@@ -121,7 +122,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">reg1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">y1</span> <span class="op">~</span> <span class="va">x1</span><span class="op">*</span><span class="va">z1</span>, <span class="va">oneInt</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">reg1</span><span class="op">)</span></span></code></pre></div>
-<p><strong>Using modsem()</strong> In general, when you have interactions between observed variables it is recommended that you use method = “pind”.</p>
+<p><strong>Using modsem()</strong> In general, when you have interactions between observed variables it is recommended that you use method = “pind”. Interaction effects with observed variables is not supported by the LMS- and QML-approach. In certain circumstances, you can define a latent variabale with a single indicator to estimate the interaction effect between two observed variables, in the LMS and QML approach, but it is generally not recommended.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Here we use "pind" as the method (see chapter 3)</span></span>
 <span><span class="va">est2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="st">'y1 ~ x1 + z1 + x1:z1'</span>, data <span class="op">=</span> <span class="va">oneInt</span>, method <span class="op">=</span> <span class="st">"pind"</span><span class="op">)</span></span>

@@ -46,6 +46,7 @@ NOTE: run 'default_settings_da()' to see default arguments."><!-- mathjax --><sc
     <a class="dropdown-item" href="../articles/lavaan.html">using lavaan functions</a>
     <a class="dropdown-item" href="../articles/lms_qml.html">LMS and QML approaches</a>
     <a class="dropdown-item" href="../articles/methods.html">methods</a>
+    <a class="dropdown-item" href="../articles/observed_lms_qml.html">observed variables in the LMS- and QML approach</a>
     <a class="dropdown-item" href="../articles/plot_interactions.html">plotting interaction effects</a>
     <a class="dropdown-item" href="../articles/quadratic.html">quadratic effects</a>
   </div>
@@ -105,6 +106,9 @@ NOTE: run 'default_settings_da()' to see default arguments.</p>
 <span>  OFIM.hessian <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  EFIM.parametric <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  robust.se <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  max.iter <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  max.step <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  start <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -136,7 +140,10 @@ NOTE: run 'default_settings_da()' to see default arguments.</p>
 <dt>nodes</dt>
 <dd><p>number of quadrature nodes (points of integration) used in lms,
 increased number gives better estimates but slower computation. How many is needed, depends on the complexity of the model
-for simple models 16 is enough, for more complex models 100 is usually enough.</p></dd>
+for simple models 16 is enough, for more complex higher numbers may be needed. If you want the highest possible accuracy 
+100 is usually more than enough. For models where there is an interaction effects between and endogenous and exogenous variable 
+the number of nodes should at least be 20, but practically (e.g., ordinal/skewed data) &gt;=32 is recommended. In cases, 
+where data is non-normal it mifht be better to use the qml approach instead.</p></dd>
 
 
 <dt>convergence</dt>
@@ -209,6 +216,18 @@ from the model), or non-parametrically (stochastically sampled)</p></dd>
 
 <dt>robust.se</dt>
 <dd><p>should robust standard errors be computed?</p></dd>
+
+
+<dt>max.iter</dt>
+<dd><p>max numebr of iterations</p></dd>
+
+
+<dt>max.step</dt>
+<dd><p>max steps for the M-step in the EM algorithm</p></dd>
+
+
+<dt>start</dt>
+<dd><p>starting parameters</p></dd>
 
 
 <dt>...</dt>

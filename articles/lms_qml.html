@@ -49,6 +49,7 @@
     <a class="dropdown-item" href="../articles/lavaan.html">using lavaan functions</a>
     <a class="dropdown-item" href="../articles/lms_qml.html">LMS and QML approaches</a>
     <a class="dropdown-item" href="../articles/methods.html">methods</a>
+    <a class="dropdown-item" href="../articles/observed_lms_qml.html">observed variables in the LMS- and QML approach</a>
     <a class="dropdown-item" href="../articles/plot_interactions.html">plotting interaction effects</a>
     <a class="dropdown-item" href="../articles/quadratic.html">quadratic effects</a>
   </div>
@@ -119,8 +120,8 @@
 <div class="section level3">
 <h3 id="a-more-complicated-example">A more complicated example<a class="anchor" aria-label="anchor" href="#a-more-complicated-example"></a>
 </h3>
-<p>Here you can see an example of a more complicated example using the model from the theory of planned behaviour (TPB), where there are two endogenous variables, where there is an interaction between an endogenous and exogenous variable. When estimating more complicated models with the LMS-approach, it is recommended that you increase the number of nodes used for numerical integration. By default the number of nodes is set to 16, and can be increased using the nodes argument. The argument has no effect on the QML approach. You can also get robust standard errors by setting <code>robust.se = TRUE</code> in the <code><a href="../reference/modsem.html">modsem()</a></code> function.</p>
-<p>Note: If you want the lms-approach to give as similar results as possible to mplus, you would have to increase the number of nodes (e.g., <code>nodes = 100</code>), and lower the convergence criterion (e.g., <code>conv_crit = 1e-5</code>).</p>
+<p>Here you can see an example of a more complicated example using the model from the theory of planned behaviour (TPB), where there are two endogenous variables, where there is an interaction between an endogenous and exogenous variable. When estimating more complicated models with the LMS-approach, it is recommended that you increase the number of nodes used for numerical integration. By default the number of nodes is set to 16, and can be increased using the nodes argument. The argument has no effect on the QML approach. When there is an interaction effect between an endogenous and exogenous variable, it is recommended that you use at least 32 nodes for the LMS-approach. You can also get robust standard errors by setting <code>robust.se = TRUE</code> in the <code><a href="../reference/modsem.html">modsem()</a></code> function.</p>
+<p>Note: If you want the lms-approach to give as similar results as possible to mplus, you would have to increase the number of nodes (e.g., <code>nodes = 100</code>).</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># ATT = Attitude, </span></span>
 <span><span class="co"># PBC = Perceived Behavioural Control </span></span>
@@ -141,7 +142,7 @@
 <span><span class="st">  BEH ~ INT:PBC  </span></span>
 <span><span class="st">'</span></span>
 <span></span>
-<span><span class="va">lms2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"lms"</span>, nodes <span class="op">=</span> <span class="fl">20</span>,</span>
+<span><span class="va">lms2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modsem.html">modsem</a></span><span class="op">(</span><span class="va">tpb</span>, <span class="va">TPB</span>, method <span class="op">=</span> <span class="st">"lms"</span>, nodes <span class="op">=</span> <span class="fl">32</span>,</span>
 <span>               robust.se <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">lms2</span><span class="op">)</span></span>
 <span></span>
