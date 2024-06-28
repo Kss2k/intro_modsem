@@ -24,7 +24,7 @@ NOTE: run 'default_settings_da()' to see default arguments."><!-- mathjax --><sc
     
     <a class="navbar-brand me-2" href="../index.html">modsem</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,6 +93,7 @@ NOTE: run 'default_settings_da()' to see default arguments.</p>
 <span>  optimize <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  nodes <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  convergence <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  optimizer <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  center.data <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  standardize.data <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  standardize.out <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -109,6 +110,8 @@ NOTE: run 'default_settings_da()' to see default arguments.</p>
 <span>  max.iter <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  max.step <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  start <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  epsilon <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  quad.range <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -140,14 +143,20 @@ NOTE: run 'default_settings_da()' to see default arguments.</p>
 <dt>nodes</dt>
 <dd><p>number of quadrature nodes (points of integration) used in lms,
 increased number gives better estimates but slower computation. How many is needed, depends on the complexity of the model
-for simple models 16 is enough, for more complex higher numbers may be needed. If you want the highest possible accuracy 
-100 is usually more than enough. For models where there is an interaction effects between and endogenous and exogenous variable 
-the number of nodes should at least be 20, but practically (e.g., ordinal/skewed data) &gt;=32 is recommended. In cases, 
-where data is non-normal it mifht be better to use the qml approach instead.</p></dd>
+For simple models you somwhere between 16-24 should be enough, for more complex higher numbers may be needed. 
+For models where there is an interaction effects between and endogenous and exogenous variable 
+the number of nodes should at least be 32, but practically (e.g., ordinal/skewed data) more than 32 is recommended. In cases, 
+where data is non-normal it might be better to use the qml approach instead. For large
+numbers of nodes, you might want to change the 'quad.range' argument.</p></dd>
 
 
 <dt>convergence</dt>
 <dd><p>convergence criterion. Lower values give better estimates but slower computation.</p></dd>
+
+
+<dt>optimizer</dt>
+<dd><p>optimizer to use, can be either "nlminb" or "L-BFGS-B". For LMS, "nlminb" is recommended. 
+For QML, "L-BFGS-B" may be faster if there is a large number of iterations, but slower if there are few iterations.</p></dd>
 
 
 <dt>center.data</dt>
@@ -189,7 +198,8 @@ NOTE: Not recommended unless you know what you are doing.</p></dd>
 
 
 <dt>double</dt>
-<dd><p>= NULL,</p></dd>
+<dd><p>try to double the number of dimensions of integrations used in LMS,
+this will be extremely slow, but should be more similar to mplus.</p></dd>
 
 
 <dt>calc.se</dt>
@@ -211,11 +221,13 @@ NOTE: Not recommended unless you know what you are doing.</p></dd>
 <dt>EFIM.parametric</dt>
 <dd><p>should data for calculating expected fisher information matrix be 
 simulated parametrically (simulated based on the assumptions- and implied parameters
-from the model), or non-parametrically (stochastically sampled)</p></dd>
+from the model), or non-parametrically (stochastically sampled). If you believe that 
+normality assumptions are violated, 'EFIM.parametric = FALSE' might be the better option.</p></dd>
 
 
 <dt>robust.se</dt>
-<dd><p>should robust standard errors be computed?</p></dd>
+<dd><p>should robust standard errors be computed? Meant to be used for QML, 
+can be unreliable with the LMS-approach.</p></dd>
 
 
 <dt>max.iter</dt>
@@ -223,11 +235,22 @@ from the model), or non-parametrically (stochastically sampled)</p></dd>
 
 
 <dt>max.step</dt>
-<dd><p>max steps for the M-step in the EM algorithm</p></dd>
+<dd><p>max steps for the M-step in the EM algorithm (LMS)</p></dd>
 
 
 <dt>start</dt>
 <dd><p>starting parameters</p></dd>
+
+
+<dt>epsilon</dt>
+<dd><p>finite difference for numerical derivatives</p></dd>
+
+
+<dt>quad.range</dt>
+<dd><p>range in z-scores to perform numerical integration in LMS using 
+Gaussian-Hermite Quadratures. By default Inf, such that f(t) is integrated from -Inf to Inf, 
+but this will likely be inefficient and pointless at large number of nodes. Nodes outside 
++/- quad.range will be ignored.</p></dd>
 
 
 <dt>...</dt>
