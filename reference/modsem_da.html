@@ -109,6 +109,7 @@ NOTE: run 'default_settings_da()' to see default arguments.</p>
 <span>  robust.se <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  max.iter <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  max.step <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fix.estep <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  start <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  epsilon <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  quad.range <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -236,6 +237,11 @@ can be unreliable with the LMS-approach.</p></dd>
 
 <dt>max.step</dt>
 <dd><p>max steps for the M-step in the EM algorithm (LMS)</p></dd>
+
+
+<dt>fix.estep</dt>
+<dd><p>if TRUE, E-step will be fixed and the prior probabilities are set to the best prior probabilities, 
+if loglikelihood is decreasing for more than 30 iterations.</p></dd>
 
 
 <dt>start</dt>
