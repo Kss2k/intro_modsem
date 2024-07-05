@@ -118,13 +118,28 @@
 </ul>
 </div>
 <div class="section level1">
-<h1 id="new-features-01062024-05-06-2024">New Features (01.06.2024-05-06-2024)<a class="anchor" aria-label="anchor" href="#new-features-01062024-05-06-2024"></a>
+<h1 id="new-features-version-101-available-on-github-not-on-cran">New Features version 1.0.1 (Available on GitHub, not on CRAN)<a class="anchor" aria-label="anchor" href="#new-features-version-101-available-on-github-not-on-cran"></a>
 </h1>
 <ul>
-<li>New function for plotting interaction effects (<code><a href="reference/plot_interaction.html">plot_interaction()</a></code>), see the <a href="https://kss2k.github.io/intro_modsem/articles/plot_interactions.html" class="external-link">vignette</a>
-</li>
 <li>Interaction effects between endogenous and exogenous variables are now possible by default with QML-approach.</li>
-<li>Interaction effects between two endogenous variables are now possible with the LMS and QML approach, using the ‘cov.syntax’ argument, see the <a href="https://kss2k.github.io/intro_modsem/articles/interaction_two_etas.html" class="external-link">vignette</a> for more information. (only available on GitHub, not on CRAN)</li>
+<li>Interaction effects between two endogenous variables are now possible with the LMS and QML approach, using the ‘cov.syntax’ argument, see the <a href="https://kss2k.github.io/intro_modsem/articles/interaction_two_etas.html" class="external-link">vignette</a> for more information.</li>
+<li>Improved <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> function for LMS and QML:<ol style="list-style-type: decimal">
+<li>Standardized estimates are now available for the LMS and QML approach, using the <code>standardized = TRUE</code> argument.</li>
+<li>The <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> function now also returns the RMSEA, Chi-Square, AIC, BIC, and Expected covariance matrix for the LMS and QML approach.</li>
+<li>The <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> function now resembles the output of the <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> function from the <code>lavaan</code> package.</li>
+</ol>
+</li>
+<li>Added post-estimation functions for LMS and QML:<ol style="list-style-type: decimal">
+<li>
+<code><a href="reference/modsem_inspect.html">modsem_inspect()</a></code> for inspecting the results of the LMS and QML approach</li>
+<li>
+<code><a href="reference/fit_modsem_da.html">fit_modsem_da()</a></code> caluculates a variety of fit indices for the LMS and QML approach, RMSEA, Chi-Square, AIC, BIC, and Expected covariance matrix.</li>
+<li>
+<code><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov()</a></code> returns the variance-covariance matrix of the parameter estimates for the LMS and QML approach.</li>
+<li>
+<code><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef()</a></code> returns the parameter estimates for the LMS and QML approach.</li>
+</ol>
+</li>
 </ul>
 </div>
 <div class="section level1">
