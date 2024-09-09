@@ -16,6 +16,7 @@
 <url><loc>/index.html</loc></url>
 <url><loc>/reference/TPB.html</loc></url>
 <url><loc>/reference/TPB_UK.html</loc></url>
+<url><loc>/reference/coef_modsem_da.html</loc></url>
 <url><loc>/reference/compare_fit.html</loc></url>
 <url><loc>/reference/default_settings_da.html</loc></url>
 <url><loc>/reference/default_settings_pi.html</loc></url>
@@ -40,5 +41,6 @@
 <url><loc>/reference/summary.html</loc></url>
 <url><loc>/reference/trace_path.html</loc></url>
 <url><loc>/reference/var_interactions.html</loc></url>
+<url><loc>/reference/vcov_modsem_da.html</loc></url>
 </urlset>
 
